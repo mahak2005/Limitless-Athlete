@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Camera, Plus } from "lucide-react"
+import { Camera } from "lucide-react"
+// import { Camera, Plus } from "lucide-react"
 
 export function ProfileContent() {
   return (
