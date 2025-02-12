@@ -64,7 +64,7 @@ export function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p>&copy; {new Date().getFullYear()} LimitlessAthelete. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} LimitlessAthlete. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

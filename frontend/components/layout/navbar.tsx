@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/components/auth/auth-context"
-
+import Image from 'next/image';
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Match With Athletes", path: "/match-with-athletes" },
@@ -31,11 +31,19 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
-              className="h-8 w-8 bg-blue-600 rounded-full"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-            />
-            <span className="text-xl font-semibold">LimitlessAthelete</span>
+              className="h-24 w-24 relative"
+            >
+              <Image
+                src="/Limitless.png"
+                alt="Logo"
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
+            </motion.div>
+            <span className="text-xl font-semibold">LimitlessAthlete</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -43,9 +51,8 @@ export function Navbar() {
               <motion.div key={item.name} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href={item.path}
-                  className={`text-sm font-medium transition-colors ${
-                    pathname === item.path ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
-                  }`}
+                  className={`text-sm font-medium transition-colors ${pathname === item.path ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+                    }`}
                 >
                   {item.name}
                 </Link>
@@ -79,9 +86,8 @@ export function Navbar() {
                   <Link
                     key={item.name}
                     href={item.path}
-                    className={`text-sm font-medium transition-colors ${
-                      pathname === item.path ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
-                    }`}
+                    className={`text-sm font-medium transition-colors ${pathname === item.path ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+                      }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}

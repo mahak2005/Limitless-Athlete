@@ -63,7 +63,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <div className="h-8 w-8 bg-blue-600 rounded-full" />
-              <span className="text-xl font-semibold">LimitlessAthelete</span>
+              <span className="text-xl font-semibold">LimitlessAthlete</span>
             </Link>
             <div className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-slate-600 hover:text-slate-900">
@@ -329,7 +329,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-slate-800 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} LimitlessAthelete. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} LimitlessAthlete. All rights reserved.</p>
           </div>
         </div>
       </footer>
