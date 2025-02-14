@@ -1,13 +1,9 @@
-import { AuthProvider } from "@/components/auth/auth-context"
-import { LoginModal } from "@/components/auth/login-modal"
-import { SignupModal } from "@/components/auth/signup-modal"
-import "@/app/globals.css"
+import { AuthProvider } from "@/components/auth/auth-context";
+import { LoginModal } from "@/components/auth/login-modal";
+import { SignupModal } from "@/components/auth/signup-modal";
+import "@/app/globals.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
@@ -18,6 +14,5 @@ export default function RootLayout({
         </AuthProvider>
       </body>
     </html>
-  )
+  );
 }
-
