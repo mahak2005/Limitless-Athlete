@@ -7,8 +7,8 @@ const events = [
   {
     id: 1,
     title: "Realms",
-    type: "Hackathon",
-    themes: ["HEALTHTECH", "VR/AR"],
+    type: "Match",
+    themes: ["Football", "Soccer"],
     status: {
       mode: "OFFLINE",
       state: "OPEN",
@@ -29,9 +29,9 @@ const events = [
   },
   {
     id: 2,
-    title: "ZK Online Hackathon for Web3 Builders",
-    type: "Hackathon",
-    themes: ["BLOCKCHAIN", "AI/ML"],
+    title: "ZK Online for Athletes",
+    type: "MeetUp",
+    themes: ["Athletes"],
     status: {
       mode: "ONLINE",
       state: "OPEN",
@@ -53,7 +53,7 @@ const events = [
   {
     id: 3,
     title: "SIT'Novate",
-    type: "Hackathon",
+    type: "Competition",
     themes: ["NO RESTRICTIONS"],
     status: {
       mode: "OFFLINE",
@@ -75,9 +75,9 @@ const events = [
   },
   {
     id: 4,
-    title: "Safe Agentathon",
-    type: "Hackathon",
-    themes: ["BLOCKCHAIN", "AI/ML"],
+    title: "Tournament 6.0",
+    type: "Tournament",
+    themes: ["Taekwondo", "Martial Arts"],
     status: {
       mode: "ONLINE",
       state: "OPEN",

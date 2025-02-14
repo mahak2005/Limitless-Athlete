@@ -8,18 +8,18 @@ const features = [
     title: "Find Athletes",
     description:
       "Find your perfect athlete from 1M+ discovered athletes. Find each athlete's OpenSponsorship for your campaign.",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/hero/1.png",
   },
   {
     title: "Manage Campaigns",
     description: "Approve and build your campaign in minutes. Collaborate with your brand.",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/hero/2.png",
   },
   {
     title: "Review Results",
     description:
       "Understand your results with a simple click. Once your campaign is completed, the results feature makes it easy to see the metrics for each athlete.",
-    image: "/placeholder.svg?height=200&width=200",
+    image: "/hero/3.png",
   },
 ]
 
@@ -31,7 +31,7 @@ export function Features() {
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+              className="bg-white rounded-xl shadow-lg p-6 hover:bg-blue shadow-xl transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

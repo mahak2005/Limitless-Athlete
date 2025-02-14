@@ -16,7 +16,7 @@ export default function Home() {
       title: "Find Athletes",
       description:
         "Find your perfect athlete from 1M+ discovered athletes. Find each athlete's OpenSponsorship for your campaign.",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/hero/1.png",
     },
     {
       title: "Manage Campaigns",
