@@ -1,19 +1,79 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-interface IUser extends mongoose.Document {
+// interface IUser extends mongoose.Document {
+//   name: string;
+//   email: string;
+//   password: string;
+// }
+
+// const UserSchema = new mongoose.Schema<IUser>(
+//   {
+//     name: { type: String, required: true },
+//     email: { type: String, required: true, unique: true },
+//     password: { type: String, required: true },
+//   },
+//   { timestamps: true }
+// );
+
+// const User = mongoose.model<IUser>("User", UserSchema);
+// export default User;
+
+import mongoose, { Schema,model, Document } from "mongoose";
+
+interface IPrimaryInfo {
+  birthdate?: Date;
+  gender?: string;
+  location?: string;
+}
+
+interface IMoreInfo {
+  profileStatus: string;
+  team?: string;
+}
+
+interface IUser extends Document {
+  _id: mongoose.Types.ObjectId;
   name: string;
   email: string;
   password: string;
+  userType: string;
+  profileImage?: string;
+  primaryInfo: IPrimaryInfo;
+  lifestyleInterests?: string[];
+  whySponsorMe?: string;
+  awardsAccolades?: string[];
+  gallery?: string[];
+  moreInfo: IMoreInfo;
 }
 
-const UserSchema = new mongoose.Schema<IUser>(
+const PrimaryInfoSchema = new Schema<IPrimaryInfo>({
+  birthdate: { type: Date },
+  gender: { type: String },
+  location: { type: String },
+});
+
+const MoreInfoSchema = new Schema<IMoreInfo>({
+  profileStatus: { type: String, default: "Professional" },
+  team: { type: String },
+});
+
+const UserSchema: Schema = new Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    userType: { type: String, default: "Athlete" },
+    profileImage: { type: String },
+
+    primaryInfo: { type: PrimaryInfoSchema, default: {} },
+    lifestyleInterests: { type: [String], default: [] },
+    whySponsorMe: { type: String, default: "" },
+    awardsAccolades: { type: [String], default: [] },
+    gallery: { type: [String], default: [] },
+
+    moreInfo: { type: MoreInfoSchema, default: {} },
   },
-  { timestamps: true }
+  { timestamps: true } // Adds createdAt and updatedAt fields
 );
 
-const User = mongoose.model<IUser>("User", UserSchema);
-export default User;
+export default mongoose.model<IUser>("User", UserSchema);

@@ -11,6 +11,10 @@ router.get("/signin", (req, res) => {
   });
   
 
+  router.get("/", (req: Request, res: Response) => {
+    res.json({ message: "Auth routes are working" });
+  });
+
 router.post("/signup", async (req: Request, res: Response) => {
   await registerUser(req, res);
 });

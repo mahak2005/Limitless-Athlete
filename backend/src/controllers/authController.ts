@@ -14,33 +14,42 @@ export const registerUser = async (req: Request, res: Response) => {
     const user = await User.create({ name, email, password: hashedPassword });
 
     res.status(201).json({
-      _id: user.id,
+      _id: user._id,
       name: user.name,
       email: user.email,
-      token: generateToken(user.id),
+      token: generateToken(user._id.toString()),
     });
   } catch (error) {
     res.status(500).json({ message: "Error registering user" });
   }
 };
 
-export const loginUser = async (req: Request, res: Response) => {
+
+export const loginUser = async (req: Request, res: Response): Promise<void> => {
   const { email, password } = req.body;
 
   try {
     const user = await User.findOne({ email });
-    if (!user) return res.status(400).json({ message: "Invalid email or password" });
+    if (!user) {
+      res.status(400).json({ message: "Invalid email or password" });
+      return;
+    }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ message: "Invalid email or password" });
+    if (!isMatch) {
+      res.status(400).json({ message: "Invalid email or password" });
+      return ;
+    }
 
     res.json({
-      _id: user.id,
+      _id: user._id,
       name: user.name,
       email: user.email,
       token: generateToken(user.id),
     });
   } catch (error) {
+    console.error("Login Error:", error);
     res.status(500).json({ message: "Error logging in" });
+    return ;
   }
 };
