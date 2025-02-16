@@ -46,7 +46,7 @@ export function SignupModal() {
       const data = await response.json();
 
       if (response.ok) {
-        login(data.token);
+        login(data.token, data.userId);
         setOpen(false);
         router.push("/profile"); // ✅ Redirects on successful signup
       } else {
