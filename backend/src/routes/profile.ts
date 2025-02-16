@@ -2,15 +2,13 @@ import express, { Request, Response, Router } from "express";
 import User from "../models/User"; // Ensure correct path to User model
 import mongoose from "mongoose";
 
-const router: Router = express.Router(); // ✅ Initialize Express Router
+const router: Router = express.Router(); 
 
-// ✅ Fetch User Profile
 router.get("/:userId", async (req: Request, res: Response): Promise<void> => {
   try {
-    const userId = req.params.userId.trim(); // 🔹 Remove spaces & newlines
+    const userId = req.params.userId.trim(); // 
 
-    console.log("Fetching user with ID:", `"${userId}"`); // Debugging log
-
+    console.log("Fetching user with ID:", `"${userId}"`); 
     if (!mongoose.Types.ObjectId.isValid(userId)) {
       res.status(400).json({ message: "Invalid user ID" });
       return;
