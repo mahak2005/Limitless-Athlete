@@ -2,9 +2,11 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Link2, Twitter, DiscIcon as Discord, Instagram } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 interface EventProps {
   event: {
+    id: number
     title: string
     type: string
     themes: string[]
@@ -28,6 +30,8 @@ interface EventProps {
 }
 
 export function EventCard({ event }: EventProps) {
+  const router = useRouter()
+
   return (
     <div className="bg-white rounded-lg border p-6 hover:shadow-lg transition-shadow">
       <div className="flex justify-between items-start mb-6">
@@ -116,7 +120,7 @@ export function EventCard({ event }: EventProps) {
               <span className="px-3 py-1 text-sm bg-slate-100 text-slate-700 rounded-full">{event.status.date}</span>
             )}
           </div>
-          <Button>Apply now</Button>
+          <Button onClick={() => router.push(`/events/${event.id}`)}>Apply now</Button>
         </div>
       </div>
     </div>

@@ -1,21 +1,23 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
 import { EventCard } from "@/components/ui/event-card"
 
-const events = [
+// Events related to Limitless Athlete
+const allEvents = [
   {
     id: 1,
-    title: "Realms",
-    type: "Match",
-    themes: ["Football", "Soccer"],
+    title: "Limitless Virtual Training Camp",
+    type: "Training",
+    themes: ["FITNESS", "ATHLETE DEVELOPMENT"],
     status: {
-      mode: "OFFLINE",
+      mode: "ONLINE",
       state: "OPEN",
-      date: "STARTS 19/02/25",
+      date: "STARTS 25/02/25",
     },
     participants: {
-      count: "+500",
+      count: "+300",
       avatars: [
         "/placeholder.svg?height=32&width=32",
         "/placeholder.svg?height=32&width=32",
@@ -26,39 +28,17 @@ const events = [
       website: "#",
       discord: "#",
     },
+    sport: "Multi-Sport",
   },
   {
     id: 2,
-    title: "ZK Online for Athletes",
-    type: "MeetUp",
-    themes: ["Athletes"],
-    status: {
-      mode: "ONLINE",
-      state: "OPEN",
-      isLive: true,
-    },
-    participants: {
-      count: "+500",
-      avatars: [
-        "/placeholder.svg?height=32&width=32",
-        "/placeholder.svg?height=32&width=32",
-        "/placeholder.svg?height=32&width=32",
-      ],
-    },
-    links: {
-      website: "#",
-      twitter: "#",
-    },
-  },
-  {
-    id: 3,
-    title: "SIT'Novate",
-    type: "Competition",
-    themes: ["NO RESTRICTIONS"],
+    title: "Athlete Sponsorship Program",
+    type: "Funding",
+    themes: ["FINANCIAL AID", "MENTORSHIP"],
     status: {
       mode: "OFFLINE",
       state: "OPEN",
-      date: "STARTS 19/02/25",
+      date: "STARTS 10/03/25",
     },
     participants: {
       count: "+500",
@@ -72,19 +52,20 @@ const events = [
       website: "#",
       instagram: "#",
     },
+    sport: "Multi-Sport",
   },
   {
-    id: 4,
-    title: "Tournament 6.0",
-    type: "Tournament",
-    themes: ["Taekwondo", "Martial Arts"],
+    id: 3,
+    title: "Para Sports Championship",
+    type: "Competition",
+    themes: ["INCLUSION", "ADAPTIVE SPORTS"],
     status: {
-      mode: "ONLINE",
+      mode: "OFFLINE",
       state: "OPEN",
-      isLive: true,
+      date: "STARTS 18/04/25",
     },
     participants: {
-      count: "+1000",
+      count: "+400",
       avatars: [
         "/placeholder.svg?height=32&width=32",
         "/placeholder.svg?height=32&width=32",
@@ -95,15 +76,31 @@ const events = [
       website: "#",
       twitter: "#",
     },
+    sport: "Adaptive Sports",
   },
 ]
 
 export function EventsGrid() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedSports, setSelectedSports] = useState<string[]>([])
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+
+  // Filter events based on search query, selected sports, and date
+  const filteredEvents = allEvents.filter((event) => {
+    const matchesSearch =
+      event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      event.type.toLowerCase().includes(searchQuery.toLowerCase())
+
+    const matchesSport = selectedSports.length === 0 || selectedSports.includes(event.sport)
+
+    return matchesSearch && matchesSport
+  })
+
   return (
     <section className="py-12">
       <div className="container px-4 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {events.map((event, index) => (
+          {filteredEvents.map((event, index) => (
             <motion.div
               key={event.id}
               initial={{ opacity: 0, y: 20 }}
@@ -118,4 +115,3 @@ export function EventsGrid() {
     </section>
   )
 }
-
