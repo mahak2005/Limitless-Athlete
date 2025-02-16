@@ -1,103 +1,320 @@
-"use client"
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Camera } from "lucide-react"
-// import { Camera, Plus } from "lucide-react"
+// "use client";
 
-export function ProfileContent() {
-  return (
-    <div className="flex-1 space-y-6">
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-white rounded-lg shadow-sm p-6"
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">WHY SPONSOR ME</h2>
-          <Button variant="ghost" size="sm">
-            EDIT
-          </Button>
-        </div>
-        <button className="w-full py-3 text-slate-500 border-2 border-dashed border-slate-200 rounded-lg hover:border-slate-300 transition-colors">
-          + Add Description
-        </button>
-      </motion.section>
+// import { useState, useEffect } from "react";
+// import { Input } from "@/components/ui/input";
+// import { Button } from "@/components/ui/button";
+// import { useAuth } from "@/components/auth/auth-context"; // ✅ Get user auth context
 
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="bg-white rounded-lg shadow-sm p-6"
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">LIFESTYLE & INTEREST</h2>
-          <Button variant="ghost" size="sm">
-            EDIT
-          </Button>
-        </div>
-        <button className="w-full py-3 text-slate-500 border-2 border-dashed border-slate-200 rounded-lg hover:border-slate-300 transition-colors">
-          + Add Interests
-        </button>
-      </motion.section>
+// interface ProfileData {
+//   name: string;
+//   bio?: string;
+//   email: string;
+//   age?: number;
+//   userType?: string;
+//   whySponsorMe?: string;
+// }
 
-      <div className="grid md:grid-cols-2 gap-6">
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white rounded-lg shadow-sm p-6"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold">AWARDS & ACCOLADES</h2>
-            <Button variant="ghost" size="sm">
-              ADD
-            </Button>
-          </div>
-          <button className="w-full py-3 text-slate-500 border-2 border-dashed border-slate-200 rounded-lg hover:border-slate-300 transition-colors">
-            + Add Awards
-          </button>
-        </motion.section>
+// export function ProfileContent() {
+//   const { userId } = useAuth(); // ✅ Get logged-in user ID
+//   const [profile, setProfile] = useState<ProfileData>({
+//     name: "",
+//     bio: "",
+//     email: "",
+//     age: undefined,
+//   });
 
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="bg-white rounded-lg shadow-sm p-6"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-semibold">GALLERY</h2>
-            <Button variant="ghost" size="sm">
-              ADD
-            </Button>
-          </div>
-          <div className="aspect-square border-2 border-dashed border-slate-200 rounded-lg flex items-center justify-center">
-            <div className="text-center">
-              <Camera className="h-8 w-8 mx-auto mb-2 text-slate-400" />
-              <span className="text-sm text-slate-500">Add Photos</span>
-            </div>
-          </div>
-        </motion.section>
-      </div>
+//   const [isEditing, setIsEditing] = useState(false);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState<string | null>(null);
 
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-white rounded-lg shadow-sm p-6"
-      >
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">REFERENCES</h2>
-          <Button variant="ghost" size="sm">
-            EDIT
-          </Button>
-        </div>
-        <button className="w-full py-3 text-slate-500 border-2 border-dashed border-slate-200 rounded-lg hover:border-slate-300 transition-colors">
-          + Add References
-        </button>
-      </motion.section>
-    </div>
-  )
+//   // ✅ Fetch user profile on mount
+//   useEffect(() => {
+//     if (!userId) return;
+
+//     const fetchProfile = async () => {
+//       try {
+//         const response = await fetch(`http://localhost:5000/api/user/profile`, {
+//           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+//         });
+//         const data = await response.json();
+
+//         if (response.ok) {
+//           setProfile({
+//             name: data.name,
+//             bio: data.whySponsorMe || "",
+//             email: data.email,
+//             age: data.primaryInfo?.birthdate ? calculateAge(data.primaryInfo.birthdate) : undefined,
+//             userType: data.userType,
+//             whySponsorMe: data.whySponsorMe,
+//           });
+//           localStorage.setItem("profile", JSON.stringify(data)); // ✅ Store in localStorage
+//         } else {
+//           setError("Failed to load profile.");
+//         }
+//       } catch (error) {
+//         console.error("Error fetching profile:", error);
+//         setError("Error fetching profile. Please try again.");
+//       }
+//     };
+
+//     // ✅ Load from localStorage if available
+//     const savedProfile = localStorage.getItem("profile");
+//     if (savedProfile) {
+//       setProfile(JSON.parse(savedProfile));
+//     } else {
+//       fetchProfile();
+//     }
+//   }, [userId]);
+
+//   // ✅ Convert birthdate to age
+//   const calculateAge = (birthdate: string) => {
+//     const birthDate = new Date(birthdate);
+//     const today = new Date();
+//     return today.getFullYear() - birthDate.getFullYear();
+//   };
+
+//   // ✅ Handle Input Changes
+//   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     setProfile({ ...profile, [e.target.name]: e.target.value });
+//   };
+
+//   // ✅ Handle Profile Update
+//   const handleUpdate = async () => {
+//     if (!userId) {
+//       setError("User ID is missing. Please log in again.");
+//       return;
+//     }
+
+//     setLoading(true);
+//     setError(null);
+
+//     try {
+//       const response = await fetch(`http://localhost:5000/api/user/profile/update`, {
+//         method: "PUT",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${localStorage.getItem("token")}`,
+//         },
+//         body: JSON.stringify({
+//           name: profile.name,
+//           whySponsorMe: profile.bio,
+//           email: profile.email,
+//         }),
+//       });
+
+//       const data = await response.json();
+//       if (response.ok) {
+//         setIsEditing(false);
+//         setProfile(data);
+//         localStorage.setItem("profile", JSON.stringify(data));
+//       } else {
+//         setError(data.message || "Failed to update profile.");
+//       }
+//     } catch (error) {
+//       setError("Error updating profile. Please try again.");
+//       console.error("Error updating profile:", error);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div className="p-6 bg-white rounded-lg shadow-md">
+//       <h2 className="text-2xl font-semibold">Profile Info</h2>
+
+//       {error && <p className="text-red-500">{error}</p>}
+
+//       {isEditing ? (
+//         <>
+//           <div className="mt-4">
+//             <label className="text-gray-500">Name:</label>
+//             <Input name="name" value={profile.name} onChange={handleChange} />
+//           </div>
+//           <div className="mt-4">
+//             <label className="text-gray-500">Bio:</label>
+//             <Input name="bio" value={profile.bio} onChange={handleChange} />
+//           </div>
+//           <div className="mt-4">
+//             <label className="text-gray-500">Email:</label>
+//             <Input name="email" value={profile.email} onChange={handleChange} />
+//           </div>
+
+//           <Button className="mt-4 bg-green-600 hover:bg-green-700" onClick={handleUpdate} disabled={loading}>
+//             {loading ? "Saving..." : "Save Changes"}
+//           </Button>
+//         </>
+//       ) : (
+//         <>
+//           <p className="mt-4"><strong>Name:</strong> {profile.name}</p>
+//           <p className="mt-2"><strong>Bio:</strong> {profile.bio || "N/A"}</p>
+//           <p className="mt-2"><strong>Email:</strong> {profile.email}</p>
+//           <p className="mt-2"><strong>Age:</strong> {profile.age || "N/A"}</p>
+//           <p className="mt-2"><strong>User Type:</strong> {profile.userType || "N/A"}</p>
+
+//           <Button className="mt-4 bg-blue-600 hover:bg-blue-700" onClick={() => setIsEditing(true)}>
+//             Edit Profile
+//           </Button>
+//         </>
+//       )}
+//     </div>
+//   );
+// }
+
+
+"use client";
+
+import { useState, useEffect } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/components/auth/auth-context"; // ✅ Get user auth context
+
+interface ProfileData {
+  name: string;
+  email: string;
+  age?: number;
+  userType?: string;
+  whySponsorMe?: string;
 }
 
+export function ProfileContent() {
+  const { userId } = useAuth(); // ✅ Get logged-in user ID
+  const [profile, setProfile] = useState<ProfileData>({
+    name: "",
+    email: "",
+    age: undefined,
+    userType: "",
+    whySponsorMe: "",
+  });
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // ✅ Fetch user profile on mount
+  useEffect(() => {
+    if (!userId) return;
+
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/user/profile`, {
+          headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          setProfile(data);
+          localStorage.setItem("profile", JSON.stringify(data));
+        } else {
+          setError("Failed to load profile.");
+        }
+      } catch (error) {
+        console.error("Error fetching profile:", error);
+        setError("Error fetching profile. Please try again.");
+      }
+    };
+    fetchProfile();
+    const savedProfile = localStorage.getItem("profile");
+    if (savedProfile) {
+      setProfile(JSON.parse(savedProfile));
+    } else {
+      fetchProfile();
+    }
+  }, [userId]);
+
+  // ✅ Convert birthdate to age
+  const calculateAge = (birthdate: string) => {
+    const birthDate = new Date(birthdate);
+    const today = new Date();
+    return today.getFullYear() - birthDate.getFullYear();
+  };
+
+  // ✅ Handle Input Changes
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setProfile({ ...profile, [e.target.name]: e.target.value });
+  };
+
+  // ✅ Handle Profile Update
+  const handleUpdate = async () => {
+    if (!userId) {
+      setError("User ID is missing. Please log in again.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`http://localhost:5000/api/user/profile/update`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify(profile), 
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setIsEditing(false);
+        setProfile(data.user);
+        localStorage.setItem("profile", JSON.stringify(data.user));
+      } else {
+        setError(data.message || "Failed to update profile.");
+      }
+    } catch (error) {
+      setError("Error updating profile. Please try again.");
+      console.error("Error updating profile:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="p-6 bg-white rounded-lg shadow-md">
+      <h2 className="text-2xl font-semibold">Profile Info</h2>
+
+      {error && <p className="text-red-500">{error}</p>}
+
+      {isEditing ? (
+        <>
+          <div className="mt-4">
+            <label className="text-gray-500">Name:</label>
+            <Input name="name" value={profile.name} onChange={handleChange} />
+          </div>
+          <div className="mt-4">
+            <label className="text-gray-500">Email:</label>
+            <Input name="email" value={profile.email} onChange={handleChange} />
+          </div>
+          <div className="mt-4">
+            <label className="text-gray-500">Why Sponsor Me?</label>
+            <textarea
+              name="whySponsorMe"
+              value={profile.whySponsorMe}
+              onChange={handleChange}
+              className="w-full p-2 border rounded-md"
+              rows={3}
+              placeholder="Describe why someone should sponsor you..."
+            />
+          </div>
+
+          <Button className="mt-4 bg-green-600 hover:bg-green-700" onClick={handleUpdate} disabled={loading}>
+            {loading ? "Saving..." : "Save Changes"}
+          </Button>
+        </>
+      ) : (
+        <>
+          <p className="mt-4"><strong>Name:</strong> {profile.name}</p>
+          <p className="mt-2"><strong>Email:</strong> {profile.email}</p>
+          <p className="mt-2"><strong>Age:</strong> {profile.age || "N/A"}</p>
+          <p className="mt-2"><strong>User Type:</strong> {profile.userType || "N/A"}</p>
+          <p className="mt-2"><strong>Why Sponsor Me?</strong> {profile.whySponsorMe || "Not specified"}</p>
+
+          <Button className="mt-4 bg-blue-600 hover:bg-blue-700" onClick={() => setIsEditing(true)}>
+            Edit Profile
+          </Button>
+        </>
+      )}
+    </div>
+  );
+}
