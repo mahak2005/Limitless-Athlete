@@ -11,39 +11,54 @@ import { Search, Users } from "lucide-react"
 const initialTeams = [
   {
     id: 1,
-    name: "Team Innovators",
-    description: "Looking for a ML expert and a UI/UX designer for our AI-powered solution.",
+    name: "Elite Training Squad",
+    description: "Seeking a sports physiotherapist and a nutritionist to support underprivileged athletes.",
     members: [
       {
-        name: "John Doe",
-        role: "Team Lead",
+        name: "Amit Sharma",
+        role: "Coach",
         avatar: "/placeholder.svg?height=40&width=40",
-        initials: "JD",
+        initials: "AS",
       },
       {
-        name: "Jane Smith",
-        role: "Backend Developer",
+        name: "Priya Kapoor",
+        role: "Strength Trainer",
         avatar: "/placeholder.svg?height=40&width=40",
-        initials: "JS",
+        initials: "PK",
       },
     ],
-    openRoles: ["ML Engineer", "UI/UX Designer"],
-    track: "Software Track",
+    openRoles: ["Sports Physiotherapist", "Nutritionist"],
+    track: "Athlete Development",
   },
   {
     id: 2,
-    name: "Hardware Wizards",
-    description: "Need an embedded systems programmer and a PCB designer for our IoT project.",
+    name: "Funding Champions",
+    description: "Looking for sponsors and financial advisors to help provide scholarships for athletes.",
     members: [
       {
-        name: "Mike Chen",
-        role: "Hardware Lead",
+        name: "Rahul Verma",
+        role: "Finance Lead",
         avatar: "/placeholder.svg?height=40&width=40",
-        initials: "MC",
+        initials: "RV",
       },
     ],
-    openRoles: ["Embedded Systems Programmer", "PCB Designer"],
-    track: "Hardware Track",
+    openRoles: ["Sponsorship Manager", "Financial Advisor"],
+    track: "Financial Support",
+  },
+  {
+    id: 3,
+    name: "Adaptive Sports Pioneers",
+    description: "Need volunteers and sports therapists to develop programs for para-athletes.",
+    members: [
+      {
+        name: "Neha Gupta",
+        role: "Program Coordinator",
+        avatar: "/placeholder.svg?height=40&width=40",
+        initials: "NG",
+      },
+    ],
+    openRoles: ["Volunteer", "Sports Therapist"],
+    track: "Inclusive Sports",
   },
 ]
 
@@ -57,7 +72,7 @@ export function EventTeams() {
           <div>
             <h2 className="text-2xl font-bold mb-2">Find or Create a Team</h2>
             <p className="text-muted-foreground">
-              Join an existing team or create your own to participate in the hackathon
+              Join an existing team or create your own to support athletes
             </p>
           </div>
           <Button>Create Team</Button>
@@ -129,4 +144,3 @@ export function EventTeams() {
     </div>
   )
 }
-

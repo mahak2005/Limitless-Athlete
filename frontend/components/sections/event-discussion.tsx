@@ -12,21 +12,21 @@ const initialDiscussions = [
   {
     id: 1,
     user: {
-      name: "Sarah Chen",
+      name: "Rahul Sharma",
       avatar: "/placeholder.svg?height=40&width=40",
-      initials: "SC",
+      initials: "RS",
     },
-    message: "Is there a specific format for the project presentation?",
+    message: "Are there any sponsorships available for athletes who need financial support?",
     timestamp: "2 hours ago",
     replies: [
       {
         id: 101,
         user: {
-          name: "Event Organizer",
+          name: "Project Coordinator",
           avatar: "/placeholder.svg?height=40&width=40",
-          initials: "EO",
+          initials: "PC",
         },
-        message: "Yes! We'll provide a PPT template that all teams should use. It will be shared after registration.",
+        message: "Yes! We have partnered with multiple organizations that provide funding. You can check the eligibility criteria on the website.",
         timestamp: "1 hour ago",
       },
     ],
@@ -34,13 +34,24 @@ const initialDiscussions = [
   {
     id: 2,
     user: {
-      name: "Alex Kumar",
+      name: "Pooja Verma",
       avatar: "/placeholder.svg?height=40&width=40",
-      initials: "AK",
+      initials: "PV",
     },
-    message: "Can we bring pre-built components for the hardware track?",
+    message: "How can we apply for mentorship programs?",
     timestamp: "3 hours ago",
-    replies: [],
+    replies: [
+      {
+        id: 102,
+        user: {
+          name: "Mentor Support Team",
+          avatar: "/placeholder.svg?height=40&width=40",
+          initials: "MS",
+        },
+        message: "You can apply through the mentorship section of our platform. Select your sport, and you’ll be matched with an expert in that field.",
+        timestamp: "2 hours ago",
+      },
+    ],
   },
 ]
 
@@ -124,4 +135,3 @@ export function EventDiscussion() {
     </div>
   )
 }
-
