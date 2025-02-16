@@ -32,7 +32,7 @@ router.get("/:userId", async (req: Request, res: Response): Promise<void> => {
 router.put("/update/:userId", async (req: Request, res: Response): Promise<void> => {
   try {
     const userId = req.params.userId.trim();
-    const { name, bio, email, age } = req.body;
+    const { name, bio, email, age,sport } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(userId)) {
       res.status(400).json({ message: "Invalid user ID" });
@@ -41,7 +41,7 @@ router.put("/update/:userId", async (req: Request, res: Response): Promise<void>
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,
-      { name, bio, email, age },
+      { name, bio, email, age, sport },
       { new: true }
     );
 

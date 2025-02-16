@@ -20,8 +20,8 @@ interface IUser extends Document {
   userType: string;
   profileImage?: string;
   primaryInfo: IPrimaryInfo;
-  lifestyleInterests?: string[];
   whySponsorMe?: string;
+  sport?: string;
   awardsAccolades?: string[];
   gallery?: string[];
   moreInfo: IMoreInfo;
@@ -44,10 +44,11 @@ const UserSchema: Schema = new Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     userType: { type: String, default: "Athlete" },
+    sport: { type: String, required: true},
     profileImage: { type: String },
 
     primaryInfo: { type: PrimaryInfoSchema, default: {} },
-    lifestyleInterests: { type: [String], default: [] },
+    
     whySponsorMe: { type: String, default: "" },
     awardsAccolades: { type: [String], default: [] },
     gallery: { type: [String], default: [] },
