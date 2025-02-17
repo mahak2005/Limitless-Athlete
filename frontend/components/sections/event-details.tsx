@@ -3,15 +3,17 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Trophy, Users, Link2 } from "lucide-react"
-import Image from "next/image"
+import { Calendar, MapPin, Users, Link2 } from "lucide-react"
+// import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
-interface EventDetailsProps {
-  eventId: string
-}
+// interface EventDetailsProps {
+//   eventId: string
+// }
 
 export function EventDetails({ eventId }: EventDetailsProps) {
+
+export function EventDetails({  }: EventDetailsProps) {
   // In a real application, you would fetch the event details using the eventId
   const event = {
     title: "Limitless Athlete Championship",

@@ -77,7 +77,7 @@ const athleteData = {
     },
   ],
 }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function AthleteProfile({ id }: { id: string }) {
   return (
     <div className="min-h-screen">

@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { AthleteGrid } from "@/components/sections/athlete-grid"
 
-const sportsLeagues = ["MLB/BASEBALL", "NFL/FOOTBALL", "NBA/BASKETBALL", "NHL/HOCKEY", "COLLEGE"]
+// const sportsLeagues = ["MLB/BASEBALL", "NFL/FOOTBALL", "NBA/BASKETBALL", "NHL/HOCKEY", "COLLEGE"]
 
 interface Athlete {
   id: number

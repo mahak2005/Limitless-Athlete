@@ -82,9 +82,11 @@ const allEvents = [
 ]
 
 export function EventsGrid() {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [selectedSports, setSelectedSports] = useState<string[]>([])
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+  // const [searchQuery, setSearchQuery] = useState("")
+  const [searchQuery] = useState("")
+  // const [selectedSports, setSelectedSports] = useState<string[]>([])
+  const [selectedSports] = useState<string[]>([])
+  // const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
   // Filter events based on search query, selected sports, and date
   const filteredEvents = allEvents.filter((event) => {
