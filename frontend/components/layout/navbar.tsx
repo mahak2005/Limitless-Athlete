@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import Link from "next/link"
@@ -6,19 +6,21 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { useAuth } from "@/components/auth/auth-context"
-import Image from 'next/image';
+import Image from 'next/image'
+
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Match With Athletes", path: "/match-with-athletes" },
   { name: "Events", path: "/events" },
   { name: "Plans", path: "/plans" },
+  { name: "Profile", path: "/user" },
 ]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-  const { openModal } = useAuth()
+
+  // const { openModal } = useAuth()
 
   return (
     <motion.nav
@@ -58,6 +60,7 @@ export function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            {/* 
             <div className="flex items-center space-x-4">
               <Button variant="ghost" size="sm" onClick={() => openModal("login")}>
                 Log In
@@ -66,8 +69,9 @@ export function Navbar() {
                 Sign Up
               </Button>
             </div>
+            */}
           </div>
-
+          
           <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -98,7 +102,7 @@ export function Navbar() {
                     variant="ghost"
                     size="sm"
                     onClick={() => {
-                      openModal("login")
+                      // openModal("login")
                       setIsOpen(false)
                     }}
                   >
@@ -107,7 +111,7 @@ export function Navbar() {
                   <Button
                     size="sm"
                     onClick={() => {
-                      openModal("signup")
+                      // openModal("signup")
                       setIsOpen(false)
                     }}
                   >
@@ -122,4 +126,3 @@ export function Navbar() {
     </motion.nav>
   )
 }
-
