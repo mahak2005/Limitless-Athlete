@@ -8,27 +8,27 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 // Dummy data - replace with real data fetching
 const athleteData = {
   id: "1",
-  name: "LeBron James",
+  name: "Aarav Patel",
   image:
-    "/1.png",
-  location: "🇺🇸",
+    "/ath.jpg",
+  location: "India",
   basicInfo: {
-    fullName: "LeBron Raymone James Sr.",
-    age: 40,
+    fullName: "Aarav Patel",
+    age: 21,
     gender: "Male",
-    nationality: "United States",
-    state: "California",
-    sport: "Basketball",
-    category: "International",
-    currentRanking: "NBA All-Star",
+    nationality: "Indian",
+    state: "Uttar Pradesh",
+    sport: "Athletics",
+    category: "Sprinter",
+    currentRanking: "State-Player",
   },
-  about: `LeBron Raymone James Sr. is an American NBAI player for the Los Angeles Lakers. He is widely considered to be one of the greatest basketball players in NBA history. Discussions ranking him as the greatest basketball player of all time have often been subject to significant debate, with frequent comparisons to Michael Jordan. James's teams have played in eight consecutive NBA Finals (2011–2018) and ten finals in total between the Miami Heat, Cleveland Cavaliers and Lakers.`,
+  about: `I am a dedicated and hardworking athlete from Uttar Pradesh, specializing in the 100m sprint. Born and raised in a small town, I developed a passion for athletics at a young age and has since become one of the top sprinters in my state. My journey into athletics began in school.`,
   achievements: {
     medals: [
-      "4× NBA champion (2012, 2013, 2016, 2020)",
+      "3× NBA champion (2017, 2018, 2019, 2020)",
       "4× NBA Finals MVP (2012, 2013, 2016, 2020)",
       "4× NBA Most Valuable Player (2009, 2010, 2012, 2013)",
-      "2× Olympic gold medalist (2008, 2012)",
+      
     ],
     records: [
       "NBA all-time scoring leader",
@@ -43,7 +43,7 @@ const athleteData = {
   },
   sponsorship: {
     needs: ["Brand Partnerships", "Endorsements", "Social Media Collaborations", "Event Appearances"],
-    impact: `Sponsorship opportunities with LeBron James provide unparalleled reach and influence in the global sports market. Partners benefit from association with one of the most recognized athletes in the world.`,
+    impact: `Sponsorship opportunities with Aarav Patel provide unparalleled reach and influence in the global sports market. Partners benefit from association with one of the most recognized athletes in the world.`,
     goals: [
       "Continue breaking NBA records",
       "Win additional NBA championships",
