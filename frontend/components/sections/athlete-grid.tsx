@@ -1,0 +1,136 @@
+"use client"
+
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { Share2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+
+interface Athlete {
+  id: number
+  name: string
+  team: string
+  sport: string
+  country: string
+  image: string
+  status: string
+}
+
+const athletes: Athlete[] = [
+  {
+    id: 1,
+    name: "LeBron James",
+    team: "Los Angeles Lakers",
+    sport: "Basketball",
+    country: "🇺🇸",
+    image:
+      "/1.png",
+    status: "Global STAR",
+  },
+  {
+    id: 2,
+    name: "Stephen Curry",
+    team: "Golden State Warriors",
+    sport: "Basketball",
+    country: "🇺🇸",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "Global STAR",
+  },
+  {
+    id: 3,
+    name: "Cristiano Ronaldo",
+    team: "Al Nassr FC",
+    sport: "Soccer",
+    country: "🇵🇹",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "Global STAR",
+  },
+  {
+    id: 4,
+    name: "Lionel Messi",
+    team: "Inter Miami CF",
+    sport: "Soccer",
+    country: "🇦🇷",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "Global STAR",
+  },
+  {
+    id: 5,
+    name: "Serena Williams",
+    team: "Independent",
+    sport: "Tennis",
+    country: "🇺🇸",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "Global STAR",
+  },
+  {
+    id: 6,
+    name: "Naomi Osaka",
+    team: "Independent",
+    sport: "Tennis",
+    country: "🇯🇵",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "Global STAR",
+  },
+]
+
+export function AthleteGrid() {
+  return (
+    <section className="py-12 bg-slate-50">
+      <div className="container mx-auto px-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {athletes.map((athlete) => (
+              <motion.div
+                key={athlete.id}
+                className="bg-white rounded-xl shadow-sm overflow-hidden"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="relative bg-emerald-800 p-6 pb-24">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-2xl font-semibold text-white">
+                      Sponsor {athlete.name}
+                      <span className="ml-2">{athlete.country}</span>
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Athlete</span>
+                  </div>
+                  <p className="text-white/90 mt-2">
+                    {athlete.sport} - {athlete.team}
+                  </p>
+                </div>
+                <div className="relative px-6 pb-6">
+                  <div className="absolute -top-20 left-6 w-32 h-32 rounded-full border-4 border-white overflow-hidden">
+                    <Image
+                      src={athlete.image || "/placeholder.svg"}
+                      alt={athlete.name}
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="pt-16 flex items-center justify-between">
+                    <div>
+                      <p className="text-gray-600">{athlete.status}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Button size="icon" variant="ghost">
+                        <Share2 className="h-4 w-4" />
+                      </Button>
+                      <Link href={`/athletes/${athlete.id}`}>
+                        <Button className="bg-green-500 hover:bg-green-600">WORK WITH ME</Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+

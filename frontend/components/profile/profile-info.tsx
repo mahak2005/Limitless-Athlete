@@ -20,7 +20,7 @@
 //   useEffect(() => {
 //     async function fetchProfile() {
 //       try {
-//         const response = await fetch("http://localhost:5000/api/user/profile", {
+//         const response = await fetch("http://localhost:/api/user/profile", {
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem("token")}`,
 //           },
@@ -52,14 +52,13 @@
 
 //     fetchProfile();
 //   }, []);
-
-//   // ✅ Handle Save
+  
 //   const handleSave = async () => {
 //     setLoading(true);
 //     setError(null);
 
 //     try {
-//       const response = await fetch("http://localhost:5000/api/user/profile", {
+//       const response = await fetch("http://localhost:/api/user/profile", {
 //         method: "PUT",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -91,6 +90,7 @@
 //       setLoading(false);
 //     }
 //   };
+  
 
 //   return (
 //     <motion.div
@@ -219,7 +219,7 @@ export function ProfileInfo() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const response = await fetch("http://localhost:5000/api/user/profile", {
+        const response = await fetch("http://localhost:5001/api/user/profile", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -257,7 +257,7 @@ export function ProfileInfo() {
     setError(null)
 
     try {
-      const response = await fetch("http://localhost:5000/api/user/profile", {
+      const response = await fetch("http://localhost:5001/api/user/profile", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

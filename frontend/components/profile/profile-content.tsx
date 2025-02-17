@@ -206,7 +206,7 @@ export function ProfileContent() {
 
     const fetchProfile = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/user/profile`, {
+        const response = await fetch(`http://localhost:5001/api/user/profile`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         const data = await response.json();
@@ -245,7 +245,7 @@ export function ProfileContent() {
     setError(null);
 
     try {
-      const response = await fetch(`http://localhost:5000/api/user/profile`, {
+      const response = await fetch(`http://localhost:5000/api/user/profile`, { // ✅ USES THE CORRECT ROUTE
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
