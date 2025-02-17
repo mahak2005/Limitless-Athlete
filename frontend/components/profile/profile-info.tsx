@@ -12,9 +12,11 @@
 //     profileStatus: "",
 //     team: "",
 //   });
-//   const [loading, setLoading] = useState(false);
+//   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState<string | null>(null);
+//   const [isEditing, setIsEditing] = useState(false);
 
+//   // ✅ Fetch Profile on Component Mount
 //   useEffect(() => {
 //     async function fetchProfile() {
 //       try {
@@ -23,34 +25,39 @@
 //             Authorization: `Bearer ${localStorage.getItem("token")}`,
 //           },
 //         });
-  
+
 //         if (!response.ok) throw new Error("Failed to fetch profile");
-  
+
 //         const data = await response.json();
-  
+
 //         if (data && data.user) {
 //           setProfile({
-//             birthdate: data.user.primaryInfo?.birthdate ?? "",
-//             gender: data.user.primaryInfo?.gender ?? "",
-//             location: data.user.primaryInfo?.location ?? "",
-//             profileStatus: data.user.moreInfo?.profileStatus ?? "",
-//             team: data.user.moreInfo?.team ?? "",
+//             birthdate: data.user.primaryInfo?.birthdate
+//               ? new Date(data.user.primaryInfo.birthdate).toISOString().split("T")[0]
+//               : "",
+//             gender: data.user.primaryInfo?.gender || "",
+//             location: data.user.primaryInfo?.location || "",
+//             profileStatus: data.user.moreInfo?.profileStatus || "",
+//             team: data.user.moreInfo?.team || "",
 //           });
 //         } else {
 //           throw new Error("Invalid user data received");
 //         }
 //       } catch (err) {
 //         setError((err as Error).message || "Failed to fetch profile.");
+//       } finally {
+//         setLoading(false);
 //       }
 //     }
-  
+
 //     fetchProfile();
 //   }, []);
-  
+
+//   // ✅ Handle Save
 //   const handleSave = async () => {
 //     setLoading(true);
 //     setError(null);
-  
+
 //     try {
 //       const response = await fetch("http://localhost:5000/api/user/profile", {
 //         method: "PUT",
@@ -60,17 +67,21 @@
 //         },
 //         body: JSON.stringify(profile),
 //       });
-  
+
 //       const data = await response.json();
-  
+
 //       if (response.ok && data.user) {
 //         setProfile({
-//           birthdate: data.user.primaryInfo?.birthdate ?? "",
-//           gender: data.user.primaryInfo?.gender ?? "",
-//           location: data.user.primaryInfo?.location ?? "",
-//           profileStatus: data.user.moreInfo?.profileStatus ?? "",
-//           team: data.user.moreInfo?.team ?? "",
+//           birthdate: data.user.primaryInfo?.birthdate
+//             ? new Date(data.user.primaryInfo.birthdate).toISOString().split("T")[0]
+//             : "",
+//           gender: data.user.primaryInfo?.gender || "",
+//           location: data.user.primaryInfo?.location || "",
+//           profileStatus: data.user.moreInfo?.profileStatus || "",
+//           team: data.user.moreInfo?.team || "",
 //         });
+
+//         setIsEditing(false);
 //       } else {
 //         throw new Error(data.message || "Failed to update profile.");
 //       }
@@ -80,7 +91,6 @@
 //       setLoading(false);
 //     }
 //   };
-  
 
 //   return (
 //     <motion.div
@@ -92,77 +102,107 @@
 //       {/* Error Message */}
 //       {error && <p className="text-red-500 text-sm">{error}</p>}
 
-//       {/* Primary Info Section */}
-//       <section className="bg-white rounded-lg shadow-sm p-6">
-//         <div className="flex items-center justify-between mb-4">
-//           <h2 className="text-lg font-semibold">PRIMARY INFO</h2>
-//           <Button variant="ghost" size="sm" onClick={handleSave} disabled={loading}>
-//             {loading ? "Saving..." : "SAVE"}
-//           </Button>
-//         </div>
-//         <div className="space-y-2">
-//           <input
-//             type="date"
-//             value={profile.birthdate}
-//             onChange={(e) => setProfile({ ...profile, birthdate: e.target.value })}
-//             className="w-full py-2 border rounded-lg"
-//             placeholder="Add Birthdate"
-//           />
-//           <input
-//             type="text"
-//             value={profile.gender}
-//             onChange={(e) => setProfile({ ...profile, gender: e.target.value })}
-//             className="w-full py-2 border rounded-lg"
-//             placeholder="Add Gender"
-//           />
-//           <input
-//             type="text"
-//             value={profile.location}
-//             onChange={(e) => setProfile({ ...profile, location: e.target.value })}
-//             className="w-full py-2 border rounded-lg"
-//             placeholder="Add Location"
-//           />
-//         </div>
-//       </section>
+//       {/* Show a loading indicator while data is being fetched */}
+//       {loading ? (
+//         <p className="text-gray-500 text-sm">Loading profile...</p>
+//       ) : (
+//         <>
+//           {/* Primary Info Section */}
+//           <section className="bg-white rounded-lg shadow-sm p-6">
+//             <div className="flex items-center justify-between mb-4">
+//               <h2 className="text-lg font-semibold">PRIMARY INFO</h2>
+//               {isEditing ? (
+//                 <Button variant="ghost" size="sm" onClick={handleSave} disabled={loading}>
+//                   {loading ? "Saving..." : "Save"}
+//                 </Button>
+//               ) : (
+//                 <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)}>
+//                   Edit
+//                 </Button>
+//               )}
+//             </div>
+//             <div className="space-y-2">
+//               <input
+//                 type="date"
+//                 value={profile.birthdate}
+//                 onChange={(e) => setProfile({ ...profile, birthdate: e.target.value })}
+//                 className="w-full py-2 border rounded-lg"
+//                 placeholder="Add Birthdate"
+//                 disabled={!isEditing}
+//               />
+//               <input
+//                 type="text"
+//                 value={profile.gender}
+//                 onChange={(e) => setProfile({ ...profile, gender: e.target.value })}
+//                 className="w-full py-2 border rounded-lg"
+//                 placeholder="Add Gender"
+//                 disabled={!isEditing}
+//               />
+//               <input
+//                 type="text"
+//                 value={profile.location}
+//                 onChange={(e) => setProfile({ ...profile, location: e.target.value })}
+//                 className="w-full py-2 border rounded-lg"
+//                 placeholder="Add Location"
+//                 disabled={!isEditing}
+//               />
+//             </div>
+//           </section>
 
-//       {/* More Info Section */}
-//       <section className="bg-white rounded-lg shadow-sm p-6">
-//         <div className="flex items-center justify-between mb-4">
-//           <h2 className="text-lg font-semibold">MORE INFO</h2>
-//           <Button variant="ghost" size="sm" onClick={handleSave} disabled={loading}>
-//             {loading ? "Saving..." : "SAVE"}
-//           </Button>
-//         </div>
-//         <div className="space-y-4">
-//           <div>
-//             <h3 className="text-sm font-medium text-slate-600">PROFILE STATUS</h3>
-//             <input
-//               type="text"
-//               value={profile.profileStatus}
-//               onChange={(e) => setProfile({ ...profile, profileStatus: e.target.value })}
-//               className="w-full py-2 border rounded-lg"
-//               placeholder="Profile Status"
-//             />
-//           </div>
-//           <div>
-//             <h3 className="text-sm font-medium text-slate-600">TEAM</h3>
-//             <input
-//               type="text"
-//               value={profile.team}
-//               onChange={(e) => setProfile({ ...profile, team: e.target.value })}
-//               className="w-full py-2 border rounded-lg"
-//               placeholder="Add Team"
-//             />
-//           </div>
-//         </div>
-//       </section>
+//           {/* More Info Section */}
+//           <section className="bg-white rounded-lg shadow-sm p-6">
+//             <div className="flex items-center justify-between mb-4">
+//               <h2 className="text-lg font-semibold">MORE INFO</h2>
+//               {isEditing ? (
+//                 <Button variant="ghost" size="sm" onClick={handleSave} disabled={loading}>
+//                   {loading ? "Saving..." : "Save"}
+//                 </Button>
+//               ) : (
+//                 <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)}>
+//                   Edit
+//                 </Button>
+//               )}
+//             </div>
+//             <div className="space-y-4">
+//               <div>
+//                 <h3 className="text-sm font-medium text-slate-600">PROFILE STATUS</h3>
+//                 <input
+//                   type="text"
+//                   value={profile.profileStatus}
+//                   onChange={(e) => setProfile({ ...profile, profileStatus: e.target.value })}
+//                   className="w-full py-2 border rounded-lg"
+//                   placeholder="Profile Status"
+//                   disabled={!isEditing}
+//                 />
+//               </div>
+//               <div>
+//                 <h3 className="text-sm font-medium text-slate-600">TEAM</h3>
+//                 <input
+//                   type="text"
+//                   value={profile.team}
+//                   onChange={(e) => setProfile({ ...profile, team: e.target.value })}
+//                   className="w-full py-2 border rounded-lg"
+//                   placeholder="Add Team"
+//                   disabled={!isEditing}
+//                 />
+//               </div>
+//             </div>
+//           </section>
+//         </>
+//       )}
 //     </motion.div>
 //   );
 // }
-"use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+
+"use client"
+
+import { useEffect, useState } from "react"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Edit, Save, X } from "lucide-react"
 
 export function ProfileInfo() {
   const [profile, setProfile] = useState({
@@ -171,12 +211,11 @@ export function ProfileInfo() {
     location: "",
     profileStatus: "",
     team: "",
-  });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [isEditing, setIsEditing] = useState(false);
+  })
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [isEditing, setIsEditing] = useState(false)
 
-  // ✅ Fetch Profile on Component Mount
   useEffect(() => {
     async function fetchProfile() {
       try {
@@ -184,11 +223,11 @@ export function ProfileInfo() {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-        });
+        })
 
-        if (!response.ok) throw new Error("Failed to fetch profile");
+        if (!response.ok) throw new Error("Failed to fetch profile")
 
-        const data = await response.json();
+        const data = await response.json()
 
         if (data && data.user) {
           setProfile({
@@ -199,24 +238,23 @@ export function ProfileInfo() {
             location: data.user.primaryInfo?.location || "",
             profileStatus: data.user.moreInfo?.profileStatus || "",
             team: data.user.moreInfo?.team || "",
-          });
+          })
         } else {
-          throw new Error("Invalid user data received");
+          throw new Error("Invalid user data received")
         }
       } catch (err) {
-        setError((err as Error).message || "Failed to fetch profile.");
+        setError((err as Error).message || "Failed to fetch profile.")
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
     }
 
-    fetchProfile();
-  }, []);
+    fetchProfile()
+  }, [])
 
-  // ✅ Handle Save
   const handleSave = async () => {
-    setLoading(true);
-    setError(null);
+    setLoading(true)
+    setError(null)
 
     try {
       const response = await fetch("http://localhost:5000/api/user/profile", {
@@ -226,9 +264,9 @@ export function ProfileInfo() {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify(profile),
-      });
+      })
 
-      const data = await response.json();
+      const data = await response.json()
 
       if (response.ok && data.user) {
         setProfile({
@@ -239,117 +277,175 @@ export function ProfileInfo() {
           location: data.user.primaryInfo?.location || "",
           profileStatus: data.user.moreInfo?.profileStatus || "",
           team: data.user.moreInfo?.team || "",
-        });
+        })
 
-        setIsEditing(false);
+        setIsEditing(false)
       } else {
-        throw new Error(data.message || "Failed to update profile.");
+        throw new Error(data.message || "Failed to update profile.")
       }
     } catch (err) {
-      setError((err as Error).message || "Error updating profile. Please try again.");
+      setError((err as Error).message || "Error updating profile. Please try again.")
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5 }}
-      className="w-full lg:w-80 space-y-6"
+      className="w-full max-w-md mx-auto space-y-6"
     >
-      {/* Error Message */}
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && (
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-500 text-sm">
+          {error}
+        </motion.p>
+      )}
 
-      {/* Show a loading indicator while data is being fetched */}
       {loading ? (
-        <p className="text-gray-500 text-sm">Loading profile...</p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-500 text-sm">
+          Loading profile...
+        </motion.p>
       ) : (
         <>
-          {/* Primary Info Section */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold">PRIMARY INFO</h2>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between bg-blue-600 text-white">
+              <CardTitle className="text-lg font-semibold">Primary Info</CardTitle>
               {isEditing ? (
-                <Button variant="ghost" size="sm" onClick={handleSave} disabled={loading}>
-                  {loading ? "Saving..." : "Save"}
-                </Button>
+                <div className="space-x-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => setIsEditing(false)}
+                    className="bg-white text-blue-600 hover:bg-blue-100"
+                  >
+                    <X className="w-4 h-4 mr-2" /> Cancel
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={handleSave}
+                    disabled={loading}
+                    className="bg-white text-blue-600 hover:bg-blue-100"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    {loading ? "Saving..." : "Save"}
+                  </Button>
+                </div>
               ) : (
-                <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)}>
-                  Edit
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => setIsEditing(true)}
+                  className="bg-white text-blue-600 hover:bg-blue-100"
+                >
+                  <Edit className="w-4 h-4 mr-2" /> Edit
                 </Button>
               )}
-            </div>
-            <div className="space-y-2">
-              <input
-                type="date"
-                value={profile.birthdate}
-                onChange={(e) => setProfile({ ...profile, birthdate: e.target.value })}
-                className="w-full py-2 border rounded-lg"
-                placeholder="Add Birthdate"
-                disabled={!isEditing}
-              />
-              <input
-                type="text"
-                value={profile.gender}
-                onChange={(e) => setProfile({ ...profile, gender: e.target.value })}
-                className="w-full py-2 border rounded-lg"
-                placeholder="Add Gender"
-                disabled={!isEditing}
-              />
-              <input
-                type="text"
-                value={profile.location}
-                onChange={(e) => setProfile({ ...profile, location: e.target.value })}
-                className="w-full py-2 border rounded-lg"
-                placeholder="Add Location"
-                disabled={!isEditing}
-              />
-            </div>
-          </section>
-
-          {/* More Info Section */}
-          <section className="bg-white rounded-lg shadow-sm p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold">MORE INFO</h2>
-              {isEditing ? (
-                <Button variant="ghost" size="sm" onClick={handleSave} disabled={loading}>
-                  {loading ? "Saving..." : "Save"}
-                </Button>
-              ) : (
-                <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)}>
-                  Edit
-                </Button>
-              )}
-            </div>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-medium text-slate-600">PROFILE STATUS</h3>
-                <input
+            </CardHeader>
+            <CardContent className="space-y-4 mt-4">
+              <div className="space-y-2">
+                <Label htmlFor="birthdate">Birthdate</Label>
+                <Input
+                  type="date"
+                  id="birthdate"
+                  value={profile.birthdate}
+                  onChange={(e) => setProfile({ ...profile, birthdate: e.target.value })}
+                  disabled={!isEditing}
+                  className={!isEditing ? "text-black" : ""}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="gender">Gender</Label>
+                <Input
                   type="text"
+                  id="gender"
+                  value={profile.gender}
+                  onChange={(e) => setProfile({ ...profile, gender: e.target.value })}
+                  disabled={!isEditing}
+                  placeholder="Add Gender"
+                  className={!isEditing ? "text-black" : ""}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="location">Location</Label>
+                <Input
+                  type="text"
+                  id="location"
+                  value={profile.location}
+                  onChange={(e) => setProfile({ ...profile, location: e.target.value })}
+                  disabled={!isEditing}
+                  placeholder="Add Location"
+                  className={!isEditing ? "text-black" : ""}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between bg-blue-600 text-white">
+              <CardTitle className="text-lg font-semibold">More Info</CardTitle>
+              {isEditing ? (
+                <div className="space-x-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => setIsEditing(false)}
+                    className="bg-white text-blue-600 hover:bg-blue-100"
+                  >
+                    <X className="w-4 h-4 mr-2" /> Cancel
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={handleSave}
+                    disabled={loading}
+                    className="bg-white text-blue-600 hover:bg-blue-100"
+                  >
+                    <Save className="w-4 h-4 mr-2" />
+                    {loading ? "Saving..." : "Save"}
+                  </Button>
+                </div>
+              ) : (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => setIsEditing(true)}
+                  className="bg-white text-blue-600 hover:bg-blue-100"
+                >
+                  <Edit className="w-4 h-4 mr-2" /> Edit
+                </Button>
+              )}
+            </CardHeader>
+            <CardContent className="space-y-4 mt-4">
+              <div className="space-y-2">
+                <Label htmlFor="profileStatus">Profile Status</Label>
+                <Input
+                  type="text"
+                  id="profileStatus"
                   value={profile.profileStatus}
                   onChange={(e) => setProfile({ ...profile, profileStatus: e.target.value })}
-                  className="w-full py-2 border rounded-lg"
-                  placeholder="Profile Status"
                   disabled={!isEditing}
+                  placeholder="Profile Status"
+                  className={!isEditing ? "text-black" : ""}
                 />
               </div>
-              <div>
-                <h3 className="text-sm font-medium text-slate-600">TEAM</h3>
-                <input
+              <div className="space-y-2">
+                <Label htmlFor="team">Team</Label>
+                <Input
                   type="text"
+                  id="team"
                   value={profile.team}
                   onChange={(e) => setProfile({ ...profile, team: e.target.value })}
-                  className="w-full py-2 border rounded-lg"
-                  placeholder="Add Team"
                   disabled={!isEditing}
+                  placeholder="Add Team"
+                  className={!isEditing ? "text-black" : ""}
                 />
               </div>
-            </div>
-          </section>
+            </CardContent>
+          </Card>
         </>
       )}
     </motion.div>
-  );
+  )
 }
+

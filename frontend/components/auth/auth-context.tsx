@@ -43,10 +43,11 @@
 //   }
 //   return context;
 // }
-
 "use client";
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import { LoginModal } from "@/components/auth/login-modal";  // Import Login Modal
+import { SignupModal} from "@/components/auth/signup-modal"; // Import Signup Modal
 
 interface AuthContextType {
   token: string | null;
@@ -103,6 +104,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   return (
     <AuthContext.Provider value={{ token, userId, login, logout, modalType, openModal, closeModal }}>
       {children}
+
+      {modalType === "login" && <LoginModal />}
+      {modalType === "signup" && <SignupModal />}
+
     </AuthContext.Provider>
   );
 }

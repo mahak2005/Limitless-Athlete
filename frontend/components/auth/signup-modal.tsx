@@ -12,10 +12,9 @@ import { useRouter } from "next/navigation";
 
 const userTypes = [
   { id: "athlete", label: "ATHLETE", icon: "/placeholder.svg?height=60&width=60" },
-  { id: "agent", label: "AGENT", icon: "/placeholder.svg?height=60&width=60" },
-  { id: "artist", label: "ARTIST", icon: "/placeholder.svg?height=60&width=60" },
+ 
   { id: "team", label: "TEAM", icon: "/placeholder.svg?height=60&width=60" },
-  { id: "other", label: "OTHER", icon: "/placeholder.svg?height=60&width=60" },
+  
 ];
 
 export function SignupModal() {
@@ -30,7 +29,7 @@ export function SignupModal() {
   const [userType, setUserType] = useState<"brand" | "athlete">("athlete");
   const [selectedRole, setSelectedRole] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [open, setOpen] = useState(true); 
+  const [open, setOpen] = useState(false); 
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();

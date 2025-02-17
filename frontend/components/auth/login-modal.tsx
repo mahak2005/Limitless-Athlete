@@ -170,6 +170,11 @@ export function LoginModal() {
     }
   };
 
+  interface LoginModalProps {
+    onClose: () => void;
+  }
+  
+  
   return (
     <Dialog open={modalType === "login"} onOpenChange={closeModal}>
       <DialogContent className="sm:max-w-md">
