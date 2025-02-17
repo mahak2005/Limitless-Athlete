@@ -125,62 +125,64 @@ export default function EventPage() {
             </TabsList>
             <TabsContent value="overview" className="mt-6">
               <div className="prose max-w-none">
-                <h2>Event Details</h2>
-                <p>
-                  Join us for an exciting event that brings together innovators, creators, and problem-solvers. This
-                  event offers a unique opportunity to showcase your skills, learn from experts, and win amazing prizes.
+                <h2 className="text-3xl font-semibold">Event Details</h2>
+                <p className="mt-4 text-lg">
+                  Join us for an inspiring event that brings together underprivileged athletes from across India to showcase their talents, secure financial backing, and gain exposure for future opportunities. This event is aimed at creating pathways for athletes to gain the recognition and resources they deserve.
                 </p>
 
-                <h3>Prizes</h3>
-                <ul>
-                  <li>First Prize: ₹50,000 + Internship Opportunities</li>
-                  <li>Second Prize: ₹30,000 + Mentorship Program</li>
-                  <li>Third Prize: ₹20,000</li>
-                  <li>Special Category Prizes: ₹10,000 each</li>
+                <h3 className="text-2xl font-semibold mt-8">Opportunities</h3>
+                <ul className="list-inside list-disc mt-4 space-y-2 text-lg">
+                  <li className="flex items-center space-x-2">
+                    <span className="text-lg">💰 Financial Backing: Monetary support to help athletes achieve their goals</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-lg">🤝 Sponsorships: Connect with brands and companies who want to support talent</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-lg">🎤 Showcase Your Talent: A platform to exhibit your skills and attract attention</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="text-lg">🌐 Networking: Build relationships with industry professionals and fellow athletes</span>
+                  </li>
                 </ul>
 
-                <h3>Timeline</h3>
-                <ul>
-                  <li>Registration Opens: February 1, 2025</li>
-                  <li>Registration Closes: February 20, 2025</li>
-                  <li>Event Start: February 21, 2025</li>
-                  <li>Event End: February 22, 2025</li>
-                  <li>Results Announcement: February 23, 2025</li>
+                <h3 className="text-2xl font-semibold mt-8">Timeline</h3>
+                <ul className="list-inside list-decimal mt-4 space-y-2 text-lg">
+                  <li> Registration Opens: February 1, 2025</li>
+                  <li> Registration Closes: February 20, 2025</li>
+                  <li> Event Start: February 21, 2025</li>
+                  <li> Event End: February 22, 2025</li>
+                  <li> Results Announcement: February 23, 2025</li>
                 </ul>
 
-                <h3>Eligibility</h3>
-                <ul>
-                  <li>Open to all college students</li>
-                  <li>Team size: 1-4 members</li>
-                  <li>Multiple teams from the same college are allowed</li>
+                <h3 className="text-2xl font-semibold mt-8">Eligibility</h3>
+                <ul className="list-inside list-disc mt-4 space-y-2 text-lg">
+                  <li> Open to all underprivileged athletes in India</li>
+                  <li> Team size: 1-5 athletes (Solo athletes are also encouraged to participate)</li>
+                  <li> Multiple entries from the same region are allowed</li>
                 </ul>
 
-                <h3>Judging Criteria</h3>
-                <ul>
-                  <li>Innovation and Creativity (30%)</li>
-                  <li>Technical Complexity (25%)</li>
-                  <li>Practicality and Implementation (25%)</li>
-                  <li>Presentation and Documentation (20%)</li>
+                <h3 className="text-2xl font-semibold mt-8">Judging Criteria</h3>
+                <ul className="list-inside list-decimal mt-4 space-y-2 text-lg">
+                  <li> Talent and Skill Level (30%)</li>
+                  <li> Innovation in Approach (25%)</li>
+                  <li> Impact on the Community (25%)</li>
+                  <li> Presentation and Showcase (20%)</li>
                 </ul>
 
-                <h3>Sponsors</h3>
-                <p>
-                  This event is proudly sponsored by leading companies in the industry who are committed to fostering
-                  innovation and supporting emerging talent.
+                <h3 className="text-2xl font-semibold mt-8">Sponsors</h3>
+                <p className="text-lg mt-4">
+                  Proudly sponsored by organizations dedicated to supporting athletes and fostering community growth.
                 </p>
 
-                <h3>Venue</h3>
-                <p>
-                  Thakur College of Engineering & Technology
-                  <br />
-                  Mumbai, India
-                </p>
+                <h3 className="text-2xl font-semibold mt-8">Venue</h3>
+                <p className="text-lg mt-4">Virtual Event (Accessible across India)</p>
 
-                <h3>Contact</h3>
-                <p>
+                <h3 className="text-2xl font-semibold mt-8">Contact</h3>
+                <p className="text-lg mt-4">
                   For any queries, please reach out to:
                   <br />
-                  Email: support@hackanova.com
+                  Email: support@limitlessathletes.com
                   <br />
                   Phone: +91 XXXXXXXXXX
                 </p>
@@ -199,4 +201,3 @@ export default function EventPage() {
     </div>
   )
 }
-

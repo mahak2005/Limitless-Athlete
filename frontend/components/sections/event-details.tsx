@@ -3,8 +3,8 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Calendar, MapPin, Users, Link2 } from "lucide-react"
-// import Image from "next/image"
+import {Trophy, Calendar, MapPin, Users, Link2 } from "lucide-react"
+import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface EventDetailsProps {
@@ -137,6 +137,58 @@ export function EventDetails({ eventId }: EventDetailsProps) {
               </div>
             </div>
           </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {event.prizes.map((prize) => (
+              <motion.div
+                key={prize.position}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="bg-slate-800 p-6 rounded-lg"
+              >
+                <Trophy className="h-8 w-8 text-yellow-500 mb-2" />
+                <h3 className="font-semibold mb-1">{prize.position}</h3>
+                <p className="text-2xl font-bold text-green-400 mb-2">{prize.amount}</p>
+                <ul className="text-sm text-slate-400">
+                  {prize.benefits.map((benefit) => (
+                    <li key={benefit}>{benefit}</li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+            <div className="space-y-8"></div>
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Event Tracks</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {event.tracks.map((track) => (
+                  <div key={track.name} className="bg-slate-800 p-6 rounded-lg">
+                    <h3 className="font-semibold mb-2">{track.name}</h3>
+                    <p className="text-slate-400">{track.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Sponsors</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {event.sponsors.map((sponsor) => (
+                  <div key={sponsor.name} className="bg-slate-800 p-4 rounded-lg text-center">
+                    <Image
+                      src={sponsor.logo || "/placeholder.svg"}
+                      alt={sponsor.name}
+                      width={120}
+                      height={60}
+                      className="mx-auto mb-2"
+                    />
+                    <h3 className="font-medium">{sponsor.name}</h3>
+                    <p className="text-sm text-slate-400">{sponsor.type}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
           <div className="space-y-8">
             <div>
