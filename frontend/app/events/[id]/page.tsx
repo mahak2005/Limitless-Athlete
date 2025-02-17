@@ -1,3 +1,4 @@
+
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { EventDetails } from "@/components/sections/event-details"
@@ -5,13 +6,13 @@ import { EventDiscussion } from "@/components/sections/event-discussion"
 import { EventTeams } from "@/components/sections/event-teams"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-// interface EventPageProps {
-//   params: {
-//     id: string
-//   }
-// }
+interface EventPageProps {
+  params: {
+    id: string
+  }
+}
 
-export default function EventPage({ params }: { params: { id: string } }) {
+export default function EventPage({ params }: EventPageProps) {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
@@ -100,3 +101,4 @@ export default function EventPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
+
