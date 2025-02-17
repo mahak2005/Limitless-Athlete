@@ -6,14 +6,13 @@ import { Button } from "@/components/ui/button"
 import { Calendar, MapPin, Users, Link2 } from "lucide-react"
 // import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface EventDetailsProps {
+  eventId: string
+}
 
-// interface EventDetailsProps {
-//   eventId: string
-// }
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function EventDetails({ eventId }: EventDetailsProps) {
-
-export function EventDetails({  }: EventDetailsProps) {
   // In a real application, you would fetch the event details using the eventId
   const event = {
     title: "Limitless Athlete Championship",
