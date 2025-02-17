@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 "use client"
 
 import { motion } from "framer-motion"
@@ -7,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { AthleteGrid } from "@/components/sections/athlete-grid"
 
-const sportsLeagues = ["MLB/BASEBALL", "NFL/FOOTBALL", "NBA/BASKETBALL", "NHL/HOCKEY", "COLLEGE"]
+// const sportsLeagues = ["MLB/BASEBALL", "NFL/FOOTBALL", "NBA/BASKETBALL", "NHL/HOCKEY", "COLLEGE"]
 
 interface Athlete {
   id: number
@@ -15,7 +16,7 @@ interface Athlete {
   gender: string
   team: string
   sport: string
-  country: string
+  location: string
   image: string
   status: string
 }
@@ -23,66 +24,86 @@ interface Athlete {
 const athletes: Athlete[] = [
   {
     id: 1,
-    name: "LeBron James",
+    name: "Neeraj Chopra",
     gender: "male",
-    team: "Los Angeles Lakers",
-    sport: "Basketball",
-    country: "🇺🇸",
-    image:
-      "/1.png",
-    status: "Global STAR",
+    team: "Independent",
+    sport: "Javelin Throw",
+    location: "Haryana",
+    image: "/1.png",
+    status: "National Icon",
   },
   {
     id: 2,
-    name: "Stephen Curry",
-    gender: "male",
-    team: "Golden State Warriors",
-    sport: "Basketball",
-    country: "🇺🇸",
+    name: "PV Sindhu",
+    gender: "female",
+    team: "Independent",
+    sport: "Badminton",
+    location: "Telangana",
     image: "/placeholder.svg?height=400&width=400",
     status: "Global STAR",
   },
   {
     id: 3,
-    name: "Cristiano Ronaldo",
+    name: "Virat Kohli",
     gender: "male",
-    team: "Al Nassr FC",
-    sport: "Soccer",
-    country: "🇵🇹",
+    team: "Royal Challengers Bangalore",
+    sport: "Cricket",
+    location: "Delhi",
     image: "/placeholder.svg?height=400&width=400",
     status: "Global STAR",
   },
   {
     id: 4,
-    name: "Lionel Messi",
-    gender: "male",
-    team: "Inter Miami CF",
-    sport: "Soccer",
-    country: "🇦🇷",
+    name: "Harmanpreet Kaur",
+    gender: "female",
+    team: "Mumbai Indians",
+    sport: "Cricket",
+    location: "Punjab",
     image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
+    status: "National Icon",
   },
   {
     id: 5,
-    name: "Serena Williams",
-    gender: "male",
+    name: "Mary Kom",
+    gender: "female",
     team: "Independent",
-    sport: "Tennis",
-    country: "🇺🇸",
+    sport: "Boxing",
+    location: "Manipur",
     image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
+    status: "Legend",
   },
   {
     id: 6,
-    name: "Naomi Osaka",
+    name: "Rohan Bopanna",
     gender: "male",
     team: "Independent",
     sport: "Tennis",
-    country: "🇯🇵",
+    location: "Karnataka",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "Veteran Star",
+  },
+  {
+    id: 7,
+    name: "Dipa Karmakar",
+    gender: "female",
+    team: "Independent",
+    sport: "Gymnastics",
+    location: "Tripura",
+    image: "/placeholder.svg?height=400&width=400",
+    status: "National Icon",
+  },
+  {
+    id: 8,
+    name: "Bajrang Punia",
+    gender: "male",
+    team: "Independent",
+    sport: "Wrestling",
+    location: "Haryana",
     image: "/placeholder.svg?height=400&width=400",
     status: "Global STAR",
   },
 ]
+
 export default function MatchHero() {
   const [selectedSport, setSelectedSport] = useState<string>("")
   const [selectedGender, setSelectedGender] = useState<string>("")
@@ -93,7 +114,7 @@ export default function MatchHero() {
   const filteredAthletes = athletes.filter((athlete) => {
     const sportMatch = selectedSport ? athlete.sport.toLowerCase() === selectedSport.toLowerCase() : true
     const genderMatch = selectedGender ? athlete.gender.toLowerCase() === selectedGender.toLowerCase() : true
-    const locationMatch = location ? athlete.country.toLowerCase().includes(location.toLowerCase()) : true
+    const locationMatch = location ? athlete.location.toLowerCase().includes(location.toLowerCase()) : true
     return sportMatch && genderMatch && locationMatch
   })
 
