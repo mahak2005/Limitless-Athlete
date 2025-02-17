@@ -13,6 +13,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export default function ProfilePage() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { token, userId } = useAuth();
   const router = useRouter();
 
