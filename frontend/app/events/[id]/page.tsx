@@ -5,11 +5,11 @@ import { EventDiscussion } from "@/components/sections/event-discussion"
 import { EventTeams } from "@/components/sections/event-teams"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-interface EventPageProps {
-  params: {
-    id: string
-  }
-}
+// interface EventPageProps {
+//   params: {
+//     id: string
+//   }
+// }
 
 export default function EventPage({ params }: { params: { id: string } }) {
   return (
