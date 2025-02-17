@@ -102,7 +102,7 @@ export function AthleteProfile({ id }: { id: string }) {
               <Button size="icon" variant="ghost" className="text-white">
                 <Share2 className="h-5 w-5" />
               </Button>
-              <Button className="bg-green-500 hover:bg-green-600">WORK WITH ME</Button>
+              <Button className="bg-blue-500 hover:bg-blue-600">WORK WITH ME</Button>
             </div>
           </div>
         </div>
@@ -270,7 +270,7 @@ export function AthleteProfile({ id }: { id: string }) {
                   <div key={index} className="border rounded-lg p-4">
                     <h3 className="font-semibold mb-2">{deal.title}</h3>
                     <p className="text-sm text-gray-600 mb-4">{deal.description}</p>
-                    <Button className="w-full bg-green-500 hover:bg-green-600">LOG IN TO SEE PRICING</Button>
+                    <Button className="w-full bg-blue-500 hover:bg-blue-600">LOG IN TO SEE PRICING</Button>
                   </div>
                 ))}
               </div>

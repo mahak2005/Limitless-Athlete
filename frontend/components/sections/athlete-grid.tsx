@@ -34,18 +34,18 @@ export function AthleteGrid({ athletes }: AthleteGridProps) {
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="relative bg-emerald-800 p-6 pb-24">
+                <div className="relative bg-blue-500 p-6 pb-24">
                   <div className="flex items-center gap-2">
                     <h3 className="text-2xl font-semibold text-white">
                       Sponsor {athlete.name}
-                      <span className="ml-2">{athlete.location}</span>
+                      <span className="ml-2">({athlete.location})</span>
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 mt-2">
+                  {/* <div className="flex items-center gap-2 mt-2">
                     <span className="px-3 py-1 bg-purple-600 text-white rounded-full text-sm">Athlete</span>
-                  </div>
+                  </div> */}
                   <p className="text-white/90 mt-2">
-                    {athlete.sport} - {athlete.team}
+                    {athlete.sport} - Team: {athlete.team}
                   </p>
                 </div>
                 <div className="relative px-6 pb-6">
@@ -67,7 +67,7 @@ export function AthleteGrid({ athletes }: AthleteGridProps) {
                         <Share2 className="h-4 w-4" />
                       </Button>
                       <Link href={`/athletes/${athlete.id}`}>
-                        <Button className="bg-green-500 hover:bg-green-600">WORK WITH ME</Button>
+                        <Button className="bg-blue-500 hover:bg-blue-600">WORK WITH ME</Button>
                       </Link>
                     </div>
                   </div>

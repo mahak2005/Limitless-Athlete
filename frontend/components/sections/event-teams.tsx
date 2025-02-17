@@ -130,7 +130,7 @@ export function EventTeams() {
                   <div className="space-y-2">
                     {team.openRoles.map((role) => (
                       <div key={role} className="flex items-center gap-2">
-                        <div className="h-2 w-2 bg-green-500 rounded-full" />
+                        <div className="h-2 w-2 bg-blue-500 rounded-full" />
                         <span>{role}</span>
                       </div>
                     ))}

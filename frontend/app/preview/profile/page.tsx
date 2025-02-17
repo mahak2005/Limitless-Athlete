@@ -1,6 +1,6 @@
-import ProfilePage from "@/app/profile/page"
+// import ProfilePage from "@/app/profile/page"
 
-export default function PreviewProfilePage() {
-  return <ProfilePage />
-}
+// export default function PreviewProfilePage() {
+//   return <ProfilePage />
+// }
 

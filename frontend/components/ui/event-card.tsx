@@ -103,7 +103,7 @@ export function EventCard({ event }: EventProps) {
               />
             ))}
           </div>
-          <span className="text-sm text-green-600 font-medium">{event.participants.count} participating</span>
+          <span className="text-sm text-blue-600 font-medium">{event.participants.count} participating</span>
         </div>
 
         <div className="flex items-center justify-between">

@@ -5,52 +5,37 @@ import Image from "next/image"
 import Link from "next/link"
 
 const sports = [
+  
   {
-    title: "Sponsor Soccer",
-    profiles: "1357 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
-    href: "/match-with-athletes/soccer",
-  },
-  {
-    title: "Sponsor Football / NFL",
-    profiles: "4340 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
+    title: "Sponsor Football",
+    profiles: "43 matching profiles",
+    image: "/football.jpg",
     href: "/match-with-athletes/football",
   },
   {
-    title: "Sponsor Basketball / NBA",
-    profiles: "2106 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
+    title: "Sponsor Basketball ",
+    profiles: "21 matching profiles",
+    image: "/basketball.jpg",
     href: "/match-with-athletes/basketball",
   },
-  {
-    title: "Sponsor Softball",
-    profiles: "245 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
-    href: "/match-with-athletes/softball",
-  },
+  
   {
     title: "Sponsor Tennis",
-    profiles: "424 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
+    profiles: "42 matching profiles",
+    image: "/tennis.jpg",
     href: "/match-with-athletes/tennis",
   },
   {
     title: "Sponsor Running",
-    profiles: "411 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
+    profiles: "41 matching profiles",
+    image: "/athletics.jpg",
     href: "/match-with-athletes/running",
   },
+ 
   {
-    title: "Sponsor Nascar / Racing",
-    profiles: "358 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
-    href: "/match-with-athletes/racing",
-  },
-  {
-    title: "Sponsor NHL/Hockey",
-    profiles: "492 matching profiles",
-    image: "/placeholder.svg?height=300&width=400",
+    title: "Sponsor Hockey",
+    profiles: "42 matching profiles",
+    image: "/hockey.jpg",
     href: "/match-with-athletes/hockey",
   },
 ]

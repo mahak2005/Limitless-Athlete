@@ -126,7 +126,7 @@ export function PricingSection() {
               <div className="space-y-3">
                 {plan.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-2">
-                    <Check className="h-4 w-4 text-green-500" />
+                    <Check className="h-4 w-4 text-blue-500" />
                     <span className="text-sm text-slate-600">{feature}</span>
                   </div>
                 ))}

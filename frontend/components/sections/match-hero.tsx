@@ -24,52 +24,52 @@ interface Athlete {
 const athletes: Athlete[] = [
   {
     id: 1,
-    name: "Neeraj Chopra",
+    name: "Aakash Chopra",
     gender: "male",
     team: "Independent",
     sport: "Javelin Throw",
     location: "Haryana",
-    image: "/1.png",
+    image: "/jav.jpg",
     status: "National Icon",
   },
   {
     id: 2,
-    name: "PV Sindhu",
+    name: "Priya Deshmukh",
     gender: "female",
     team: "Independent",
     sport: "Badminton",
-    location: "Telangana",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
+    location: "Punjab",
+    image: "/badmin.jpg",
+    status: "National Player",
   },
   {
     id: 3,
-    name: "Virat Kohli",
+    name: "Aarav Patel",
     gender: "male",
-    team: "Royal Challengers Bangalore",
-    sport: "Cricket",
+    team: "Hockey- Delhi",
+    sport: "Hockey",
     location: "Delhi",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
+    image: "/hockey.jpg",
+    status: "State PLayer",
   },
   {
     id: 4,
-    name: "Harmanpreet Kaur",
-    gender: "female",
-    team: "Mumbai Indians",
-    sport: "Cricket",
+    name: "Rahul Mehra",
+    gender: "male",
+    team: "Independent",
+    sport: "Tennis",
     location: "Punjab",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "National Icon",
+    image: "/ten.jpg",
+    status: "Upcoming Athlete",
   },
   {
     id: 5,
-    name: "Mary Kom",
+    name: "Ishita Jha",
     gender: "female",
-    team: "Independent",
-    sport: "Boxing",
+    team: "Play-India",
+    sport: "Basketball",
     location: "Manipur",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/basket.jpg",
     status: "Legend",
   },
   {
@@ -77,10 +77,10 @@ const athletes: Athlete[] = [
     name: "Rohan Bopanna",
     gender: "male",
     team: "Independent",
-    sport: "Tennis",
-    location: "Karnataka",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Veteran Star",
+    sport: "Athletics",
+    location: "Maharastra",
+    image: "/ath.jpg",
+    status: "National Player",
   },
   {
     id: 7,
@@ -88,19 +88,29 @@ const athletes: Athlete[] = [
     gender: "female",
     team: "Independent",
     sport: "Gymnastics",
-    location: "Tripura",
-    image: "/placeholder.svg?height=400&width=400",
+    location: "Haryana",
+    image: "/badmin.jpg",
     status: "National Icon",
   },
   {
     id: 8,
-    name: "Bajrang Punia",
+    name: "Rahul Sachdeva",
     gender: "male",
-    team: "Independent",
-    sport: "Wrestling",
+    team: "RCB",
+    sport: "Cricket",
+    location: "Delhi",
+    image: "/ten.jpg",
+    status: "National Icon",
+  },
+  {
+    id: 9,
+    name: "Rishit Sharma",
+    gender: "male",
+    team: "Team ARB",
+    sport: "Cricket",
     location: "Haryana",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
+    image: "/basket.jpg",
+    status: "Upcoming Athlete",
   },
 ]
 
@@ -119,7 +129,7 @@ export default function MatchHero() {
   })
 
   return (
-    <section className="pt-24 pb-12 bg-gradient-to-br from-teal-900 to-emerald-900">
+    <section className="pt-24 pb-12 bg-gradient-to-br from-blue-900 to-blue-500">
       <div className="container mx-auto px-4">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-white text-center mb-8"
@@ -137,7 +147,7 @@ export default function MatchHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="text-slate-600 mb-6">
-            Search through our extensive database of over 20,000 athletes, events and teams, in over 40 countries and 50
+            Search through our extensive database of athletes and teams, in over 50
             sports to find the right sports sponsorship for your campaign.
           </p>
 
@@ -149,9 +159,10 @@ export default function MatchHero() {
                   <SelectValue placeholder="Select Sport" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="soccer">Soccer</SelectItem>
-                  <SelectItem value="basketball">Basketball</SelectItem>
-                  <SelectItem value="football">Football</SelectItem>
+                  <SelectItem value="Tennis">Tennis</SelectItem>
+                  <SelectItem value="Basketball">Basketball</SelectItem>
+                  <SelectItem value="Hockey">Hockey</SelectItem>
+                  <SelectItem value="Cricket">Cricket</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -168,22 +179,28 @@ export default function MatchHero() {
                 </SelectContent>
               </Select>
             </div>
-
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-1">LOCATION</label>
-              <Input
-                type="text"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                placeholder="Enter location"
-              />
+              <Select value={location} onValueChange={setLocation}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select Location" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Delhi">Delhi</SelectItem>
+                  <SelectItem value="Haryana">Haryana</SelectItem>
+                  <SelectItem value="Punjab">Punjab</SelectItem>
+                  <SelectItem value="Maharastra">Maharastra</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
+
+            
           </div>
 
           <div className="flex justify-center">
             <Button
               size="lg"
-              className="bg-teal-600 hover:bg-teal-700"
+              className="bg-blue-700 hover:bg-blue-500"
               onClick={() => setShowAthletes(!showAthletes)}
             >
               {showAthletes ? "HIDE ATHLETES" : "VIEW ALL ATHLETES"}
@@ -197,9 +214,9 @@ export default function MatchHero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <Button variant="outline" size="lg" className="bg-teal-600 hover:bg-teal-700 text-white">
+          {/* <Button variant="outline" size="lg" className="bg-teal-600 hover:bg-teal-700 text-white">
             SPEAK TO A SPORTS MARKETING EXPERT
-          </Button>
+          </Button> */}
         </motion.div>
       </div>
       
