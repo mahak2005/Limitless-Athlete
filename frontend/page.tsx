@@ -3,10 +3,10 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronLeft, ChevronRight, Menu } from "lucide-react"
+import {  Menu } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+// import { cn } from "@/lib/utils"
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
