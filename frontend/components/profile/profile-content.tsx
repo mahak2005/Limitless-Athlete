@@ -11,6 +11,7 @@ interface ProfileData {
   age?: number;
   userType?: string;
   whySponsorMe?: string;
+  sport?: string;
 }
 
 export function ProfileContent() {
@@ -21,6 +22,7 @@ export function ProfileContent() {
     age: undefined,
     userType: "",
     whySponsorMe: "",
+    sport: "",
   });
 
   const [isEditing, setIsEditing] = useState(false);
@@ -120,6 +122,17 @@ export function ProfileContent() {
             <Input name="email" value={profile.email} onChange={handleChange} />
           </div>
           <div className="mt-4">
+            <label className="text-gray-500">Sport</label>
+            <textarea
+              name="sport"
+              value={profile.sport}
+              onChange={handleChange}
+              className="w-full p-2 border rounded-md"
+              rows={1}
+              placeholder="whats your Passion?"
+            />
+          </div>
+          <div className="mt-4">
             <label className="text-gray-500">Why Sponsor Me?</label>
             <textarea
               name="whySponsorMe"
@@ -141,6 +154,7 @@ export function ProfileContent() {
           <p className="mt-2"><strong>Email:</strong> {profile.email}</p>
           <p className="mt-2"><strong>Age:</strong> {profile.age || "N/A"}</p>
           <p className="mt-2"><strong>User Type:</strong> {profile.userType || "N/A"}</p>
+          <p className="mt-2"><strong>Sport:</strong> {profile.sport}</p>
           <p className="mt-2"><strong>Why Sponsor Me?</strong> {profile.whySponsorMe || "Not specified"}</p>
 
           <Button className="mt-4 bg-blue-600 hover:bg-blue-700" onClick={() => setIsEditing(true)}>

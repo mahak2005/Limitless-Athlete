@@ -6,7 +6,6 @@ import { loginUser } from "../controllers/authController";
 
 const router = express.Router();
 
-// ✅ Fix: Ensure async handler does not return a Response object
 router.get(
   "/profile",
   authMiddleware,
@@ -73,11 +72,12 @@ router.put(
           gender,
           location,
           whySponsorMe,
-          lifestyleInterests,
+          sport,
           awardsAccolades,
           gallery,
           profileStatus,
-          team
+          team,
+          
         } = req.body;
   
         // **Ensure primaryInfo & moreInfo exist before updating**
@@ -89,10 +89,10 @@ router.put(
         user.primaryInfo.location = location ?? user.primaryInfo.location;
   
         user.whySponsorMe = whySponsorMe ?? user.whySponsorMe;
-        user.lifestyleInterests = lifestyleInterests ?? user.lifestyleInterests;
+        // user.lifestyleInterests = lifestyleInterests ?? user.lifestyleInterests;
         user.awardsAccolades = awardsAccolades ?? user.awardsAccolades;
         user.gallery = gallery ?? user.gallery;
-  
+        user.sport = sport ?? user.sport;
         user.moreInfo.profileStatus = profileStatus ?? user.moreInfo.profileStatus;
         user.moreInfo.team = team ?? user.moreInfo.team;
   

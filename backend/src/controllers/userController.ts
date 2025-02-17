@@ -28,7 +28,7 @@ export const updateUserProfile = async (req: AuthRequest, res: Response) => {
         }
 
         const { 
-            birthdate, gender, location, whySponsorMe, lifestyleInterests, 
+            birthdate, gender, location, whySponsorMe,  sport,
             awardsAccolades, gallery, profileStatus, team 
         } = req.body;
 
@@ -41,7 +41,11 @@ export const updateUserProfile = async (req: AuthRequest, res: Response) => {
         user.primaryInfo.location = location ?? user.primaryInfo.location;
 
         user.whySponsorMe = whySponsorMe ?? user.whySponsorMe;
-        user.lifestyleInterests = lifestyleInterests ?? user.lifestyleInterests;
+        user.sport = sport ?? user.sport;
+        // console.log("Updated sport value before saving:", user.sport);
+        // await user.save();
+        // console.log("User saved successfully");
+        
         user.awardsAccolades = awardsAccolades ?? user.awardsAccolades;
         user.gallery = gallery ?? user.gallery;
 
