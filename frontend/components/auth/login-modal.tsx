@@ -170,9 +170,9 @@ export function LoginModal() {
     }
   };
 
-  interface LoginModalProps {
-    onClose: () => void;
-  }
+  // interface LoginModalProps {
+  //   onClose: () => void;
+  // }
   
   
   return (

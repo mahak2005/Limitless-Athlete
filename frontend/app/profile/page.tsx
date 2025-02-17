@@ -11,7 +11,7 @@ import { ProfileSidebar } from "@/components/profile/profile-sidebar";
 import { ProfileInfo } from "@/components/profile/profile-info";
 
 export default function ProfilePage() {
-  const { token, userId } = useAuth();
+  const { token } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
