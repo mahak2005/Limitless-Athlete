@@ -6,6 +6,7 @@ import { Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
+// Add `athletes` prop to the component
 interface Athlete {
   id: number
   name: string
@@ -16,65 +17,11 @@ interface Athlete {
   status: string
 }
 
-const athletes: Athlete[] = [
-  {
-    id: 1,
-    name: "LeBron James",
-    team: "Los Angeles Lakers",
-    sport: "Basketball",
-    country: "🇺🇸",
-    image:
-      "/1.png",
-    status: "Global STAR",
-  },
-  {
-    id: 2,
-    name: "Stephen Curry",
-    team: "Golden State Warriors",
-    sport: "Basketball",
-    country: "🇺🇸",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
-  },
-  {
-    id: 3,
-    name: "Cristiano Ronaldo",
-    team: "Al Nassr FC",
-    sport: "Soccer",
-    country: "🇵🇹",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
-  },
-  {
-    id: 4,
-    name: "Lionel Messi",
-    team: "Inter Miami CF",
-    sport: "Soccer",
-    country: "🇦🇷",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
-  },
-  {
-    id: 5,
-    name: "Serena Williams",
-    team: "Independent",
-    sport: "Tennis",
-    country: "🇺🇸",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
-  },
-  {
-    id: 6,
-    name: "Naomi Osaka",
-    team: "Independent",
-    sport: "Tennis",
-    country: "🇯🇵",
-    image: "/placeholder.svg?height=400&width=400",
-    status: "Global STAR",
-  },
-]
+interface AthleteGridProps {
+  athletes: Athlete[] // Define the prop to accept athletes
+}
 
-export function AthleteGrid() {
+export function AthleteGrid({ athletes }: AthleteGridProps) {
   return (
     <section className="py-12 bg-slate-50">
       <div className="container mx-auto px-4">
