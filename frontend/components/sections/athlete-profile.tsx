@@ -82,7 +82,7 @@ export function AthleteProfile({ id }: { id: string }) {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="bg-emerald-800">
+      <div className="bg-blue-600">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-4">

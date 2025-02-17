@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { Hero } from "@/components/sections/hero"
 import { Features } from "@/components/sections/features"
-import { Testimonials } from "@/components/sections/testimonials"
+// import { Testimonials } from "@/components/sections/testimonials"
 import { TrustedBy } from "@/components/sections/trusted-by"
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <main>
         <Hero />
         <Features />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <TrustedBy />
       </main>
       <Footer />

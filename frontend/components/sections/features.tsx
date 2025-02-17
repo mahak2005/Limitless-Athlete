@@ -7,19 +7,19 @@ const features = [
   {
     title: "Find Athletes",
     description:
-      "Find your perfect athlete from 1M+ discovered athletes. Find each athlete's OpenSponsorship for your campaign.",
-    image: "/hero/1.png",
+      "Discover your perfect athlete to collaborate with and elevate your brand. Whether you need a brand ambassador, or a competitive athlete to represent your campaign, connect with athletes who embody your brand's values and message. ",
+    image: "/hp1.jpeg",
   },
   {
-    title: "Manage Campaigns",
-    description: "Approve and build your campaign in minutes. Collaborate with your brand.",
-    image: "/hero/2.png",
+    title: "Organize Sport Events",
+    description: "Host and manage your own sports events with our platform. From registration to promotion, streamline every aspect of your event organization and attract top athletes and sponsors. ",
+    image: "/hp2.jpg",
   },
   {
-    title: "Review Results",
+    title: "Collaborate and Grow",
     description:
-      "Understand your results with a simple click. Once your campaign is completed, the results feature makes it easy to see the metrics for each athlete.",
-    image: "/hero/3.png",
+      "Take your athletic career to new heights by leveraging sponsorships and partnerships. Connect with brands that align with your values and build long-lasting relationships. Grow your influence and expand your network with the right collaborations.",
+    image: "/hp3.jpg",
   },
 ]
 
