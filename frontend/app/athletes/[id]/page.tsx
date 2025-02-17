@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { AthleteProfile } from "@/components/sections/athlete-profile"
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function AthletePage({ params }: { params: { id: string } }) {
     const id = "1";
     return (
