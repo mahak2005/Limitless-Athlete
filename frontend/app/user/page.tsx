@@ -10,7 +10,7 @@ import { Navbar } from "@/components/layout/navbar";
 const defaultAthleteData = {
 //   id: "1",
   name: "Arvind Sharma",
-  image: "/1.png",
+  image: "/ath.jpg",
   country: "India",
   basicInfo: {
     fullName: "Arvind Sharma",
