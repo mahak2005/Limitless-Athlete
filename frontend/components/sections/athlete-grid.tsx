@@ -12,7 +12,7 @@ interface Athlete {
   name: string
   team: string
   sport: string
-  country: string
+  location: string
   image: string
   status: string
 }
@@ -38,7 +38,7 @@ export function AthleteGrid({ athletes }: AthleteGridProps) {
                   <div className="flex items-center gap-2">
                     <h3 className="text-2xl font-semibold text-white">
                       Sponsor {athlete.name}
-                      <span className="ml-2">{athlete.country}</span>
+                      <span className="ml-2">{athlete.location}</span>
                     </h3>
                   </div>
                   <div className="flex items-center gap-2 mt-2">

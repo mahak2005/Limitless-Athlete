@@ -11,7 +11,7 @@ const athleteData = {
   name: "LeBron James",
   image:
     "/1.png",
-  country: "🇺🇸",
+  location: "🇺🇸",
   basicInfo: {
     fullName: "LeBron Raymone James Sr.",
     age: 40,
@@ -95,7 +95,7 @@ export function AthleteProfile({ id }: { id: string }) {
               />
               <h1 className="text-2xl font-bold text-white">
                 Sponsor {athleteData.name}
-                <span className="ml-2">{athleteData.country}</span>
+                <span className="ml-2">{athleteData.location}</span>
               </h1>
             </div>
             <div className="flex items-center gap-2">
