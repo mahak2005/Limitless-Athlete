@@ -11,7 +11,9 @@ import { useRouter } from "next/navigation";
 // import { ProfileInfo } from "@/components/profile/profile-info";
 
 export default function ProfilePage() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { token, userId } = useAuth();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const router = useRouter();
 
 //   useEffect(() => {
