@@ -88,7 +88,7 @@ import { Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
-const sports = ["Football", "Basketball", "Cricket", "Tennis", "Swimming", "Athletics", "Volleyball", "Baseball"]
+// const sports = ["Football", "Basketball", "Cricket", "Tennis", "Swimming", "Athletics", "Volleyball", "Baseball"]
 
 export function EventsHeader() {
   const [searchQuery, setSearchQuery] = useState("")
