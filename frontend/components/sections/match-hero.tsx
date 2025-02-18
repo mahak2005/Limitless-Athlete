@@ -4,7 +4,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+// import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { AthleteGrid } from "@/components/sections/athlete-grid"
 
