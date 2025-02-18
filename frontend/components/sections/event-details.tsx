@@ -127,9 +127,9 @@ export function EventDetails({ eventId }: EventDetailsProps) {
                 <p className="text-2xl font-bold">{event.applicationDeadline}</p>
               </div>
               <div className="flex gap-2">
-                <Button className="flex-1" size="lg">
-                  Apply now
-                </Button>
+              <Button className="flex-1 bg-blue-600 text-white hover:bg-blue-700" size="lg">
+    Apply now
+  </Button>
                 <Button variant="outline" size="lg" className="flex-1">
                   <Link2 className="h-4 w-4 mr-2" />
                   Website

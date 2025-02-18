@@ -63,10 +63,10 @@ const plans = [
 ]
 
 export function PricingSection() {
-  const [isYearly, setIsYearly] = useState(false)
+  const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-8 bg-blue-500 px-4">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,19 +74,19 @@ export function PricingSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="text-sm font-medium text-slate-600 mb-2">Pricing</div>
-          <h1 className="text-4xl font-bold mb-8">Flexible Pricing, built for growth</h1>
+          <div className="text-sm font-medium text-slate-600 mb-2"></div>
+          <h1 className="text-4xl font-bold text-white mb-8">Flexible Pricing, built for growth</h1>
 
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={() => setIsYearly(false)}
-              className={`text-sm font-medium ${!isYearly ? "text-blue-600" : "text-slate-600"}`}
+              className={`text-sm font-medium ${!isYearly ? "text-white-600" : "text-slate-600"}`}
             >
               Monthly
             </button>
             <button
               onClick={() => setIsYearly(true)}
-              className={`text-sm font-medium ${isYearly ? "text-blue-600" : "text-slate-600"}`}
+              className={`text-sm font-medium ${isYearly ? "text-white-600" : "text-slate-600"}`}
             >
               Yearly
             </button>
@@ -105,7 +105,7 @@ export function PricingSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`relative rounded-lg border p-6 ${
+              className={`relative rounded-lg border p-6 bg-white ${
                 plan.popular ? "border-blue-200 shadow-lg" : "border-slate-200"
               }`}
             >
@@ -136,5 +136,5 @@ export function PricingSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
