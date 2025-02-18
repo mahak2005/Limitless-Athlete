@@ -56,7 +56,7 @@ const coachData = {
         },
     ],
 }
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function CoachProfile({ id }: { id: string }) {
     return (
         <div className="container mx-auto px-4 py-8">
