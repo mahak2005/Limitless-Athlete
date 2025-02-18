@@ -33,7 +33,7 @@ export function EventCard({ event }: EventProps) {
   const router = useRouter()
 
   return (
-    <div className="bg-white rounded-lg border p-6 hover:shadow-lg transition-shadow">
+    <div className="bg-white rounded-lg border p-6 hover:shadow-lg transition-shadow ">
       <div className="flex justify-between items-start mb-6">
         <div>
           <h3 className="text-xl font-semibold mb-1">{event.title}</h3>
