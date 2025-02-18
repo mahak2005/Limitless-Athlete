@@ -23,7 +23,7 @@ const coaches: Coach[] = [
     title: "Head Performance Coach",
     organization: "Elite Sports Academy",
     description: "Former Olympic athlete specializing in sprint training and athletic performance",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/c1.jpg",
     badge: "Performance",
   },
   {
@@ -32,7 +32,7 @@ const coaches: Coach[] = [
     title: "Sports Nutritionist",
     organization: "Peak Nutrition",
     description: "Certified nutritionist with expertise in athlete diet planning and performance nutrition",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/c3.jpg",
     badge: "Nutrition",
   },
   {
@@ -41,7 +41,7 @@ const coaches: Coach[] = [
     title: "Head Physiotherapist",
     organization: "Sports Medicine Center",
     description: "Specialist in sports injury rehabilitation and prevention",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/c2.jpg",
     badge: "Physiotherapy",
   },
   {
@@ -50,7 +50,7 @@ const coaches: Coach[] = [
     title: "Mental Performance Coach",
     organization: "Mind Athletes",
     description: "Sports psychologist helping athletes achieve peak mental performance",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/c3.jpg",
     badge: "Mental Training",
   },
   {
@@ -59,7 +59,7 @@ const coaches: Coach[] = [
     title: "Strength & Conditioning",
     organization: "Power Performance",
     description: "Expert in developing customized strength training programs for athletes",
-    image: "/placeholder.svg?height=400&width=400",
+    image: "/c1.jpg",
     badge: "Training",
   },
   {
