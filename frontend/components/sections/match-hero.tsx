@@ -50,7 +50,7 @@ const athletes: Athlete[] = [
     sport: "Hockey",
     location: "Delhi",
     image: "/hockey.jpg",
-    status: "State PLayer",
+    status: "State Player",
   },
   {
     id: 4,

@@ -11,6 +11,7 @@ import Image from 'next/image'
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Match With Athletes", path: "/match-with-athletes" },
+  { name: "Find Your Coach", path: "/find-your-coach" },
   { name: "Events", path: "/events" },
   { name: "Plans", path: "/plans" },
   { name: "Profile", path: "/user" },
