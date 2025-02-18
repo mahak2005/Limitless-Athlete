@@ -7,7 +7,7 @@ export default function PlansPage() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="pt-20">
+      <main className="pt-20 ">
         <PricingSection />
         <FaqSection />
       </main>
