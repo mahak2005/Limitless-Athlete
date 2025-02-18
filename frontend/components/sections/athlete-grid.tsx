@@ -37,7 +37,7 @@ export function AthleteGrid({ athletes }: AthleteGridProps) {
                 <div className="relative bg-blue-500 p-6 pb-24">
                   <div className="flex items-center gap-2">
                     <h3 className="text-2xl font-semibold text-white">
-                      Sponsor {athlete.name}
+                     {athlete.name}
                       <span className="ml-2">({athlete.location})</span>
                     </h3>
                   </div>
