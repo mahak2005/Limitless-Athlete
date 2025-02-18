@@ -17,18 +17,18 @@ const athleteData = {
     age: 21,
     gender: "Male",
     nationality: "Indian",
-    state: "Uttar Pradesh",
+    state: "Haryana",
     sport: "Athletics",
     category: "Sprinter",
     currentRanking: "State-Player",
   },
-  about: `I am a dedicated and hardworking athlete from Uttar Pradesh, specializing in the 100m sprint. Born and raised in a small town, I developed a passion for athletics at a young age and has since become one of the top sprinters in my state. My journey into athletics began in school.`,
+  about: `I am a dedicated and hardworking athlete from Haryana, specializing in the 100m sprint. Born and raised in a small town, I developed a passion for athletics at a young age and has since become one of the top sprinters in my state. My journey into athletics began in school.`,
   achievements: {
     medals: [
       "3× NBA champion (2017, 2018, 2019, 2020)",
       "4× NBA Finals MVP (2012, 2013, 2016, 2020)",
       "4× NBA Most Valuable Player (2009, 2010, 2012, 2013)",
-      
+
     ],
     records: [
       "NBA all-time scoring leader",
@@ -204,7 +204,7 @@ export function AthleteProfile({ id }: { id: string }) {
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-gray-400" />
-                  <span>Los Angeles, California, United States</span>
+                  <span>Haryana</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-gray-400" />
