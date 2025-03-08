@@ -75,9 +75,9 @@ export default function UserProfile() {
   return (
     <div className="min-h-screen ">
       <Navbar />
-      <div className="min-h-screen pt-20 bg-gradient-to-b from-blue-600 to-white-300 text-white p-6">
+      <div className="min-h-screen pt-20 bg-gradient-to-b from-blue-500 to-lightblue-400 text-white p-6">
         {/* Header */}
-        <div className="max-w-4xl mx-auto bg-gradient-to-b from-blue-600 to-white-300 rounded-lg p-6 shadow-lg">
+        <div className="max-w-4xl mx-auto bg-gradient-to-b from-blue-500 to-lightblue-400 rounded-lg p-6 shadow-lg">
           <div className="flex items-center gap-4">
             <Image
               src={athlete.image || "/placeholder.svg"}

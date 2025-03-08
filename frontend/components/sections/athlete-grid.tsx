@@ -34,7 +34,7 @@ export function AthleteGrid({ athletes }: AthleteGridProps) {
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="relative bg-gradient-to-b from-blue-600 to-lightblue-500 p-6 pb-24">
+                <div className="relative bg-gradient-to-b from-blue-500 to-lightblue-400 p-6 pb-24">
                   <div className="flex items-center gap-2">
                     <h3 className="text-2xl font-semibold text-white">
                      {athlete.name}

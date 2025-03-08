@@ -59,7 +59,7 @@ const coachData = {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function CoachProfile({ id }: { id: string }) {
     return (
-        <div className=" mx-auto py-8 bg-gradient-to-b from-blue-500 to-lightblue-300 px-8">
+        <div className=" mx-auto py-8 bg-gradient-to-b from-blue-500 to-lightblue-400 px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column - Profile Info */}
                 <div className="lg:col-span-1">

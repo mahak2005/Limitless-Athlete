@@ -129,7 +129,7 @@ export default function MatchHero() {
   })
 
   return (
-    <section className="pt-24 pb-12 bg-gradient-to-b from-blue-600 to-lightblue-400 px-4">
+    <section className="pt-24 pb-12 bg-gradient-to-b from-blue-500 to-lightblue-400 px-4">
       <div className="container mx-auto px-4">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-white text-center mb-8"
@@ -194,7 +194,7 @@ export default function MatchHero() {
               </Select>
             </div>
 
-            
+
           </div>
 
           <div className="flex justify-center">
@@ -219,7 +219,7 @@ export default function MatchHero() {
           </Button> */}
         </motion.div>
       </div>
-      
+
       {showAthletes && <AthleteGrid athletes={filteredAthletes} />}
     </section>
   )
