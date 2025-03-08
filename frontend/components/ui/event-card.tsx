@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image"
+// import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Link2, Twitter, DiscIcon as Discord, Instagram } from "lucide-react"
 import { useRouter } from "next/navigation"
@@ -92,7 +92,7 @@ export function EventCard({ event }: EventProps) {
 
         <div className="flex items-center gap-2">
           <div className="flex -space-x-2">
-            {event.participants.avatars.map((avatar, index) => (
+            {/* {event.participants.avatars.map((avatar, index) => (
               <Image
                 key={index}
                 src={avatar || "/placeholder.svg"}
@@ -101,7 +101,7 @@ export function EventCard({ event }: EventProps) {
                 height={32}
                 className="rounded-full border-2 border-white"
               />
-            ))}
+            ))} */}
           </div>
           <span className="text-sm text-blue-600 font-medium">{event.participants.count} participating</span>
         </div>
@@ -120,7 +120,8 @@ export function EventCard({ event }: EventProps) {
               <span className="px-3 py-1 text-sm bg-slate-100 text-slate-700 rounded-full">{event.status.date}</span>
             )}
           </div>
-          <Button onClick={() => router.push(`/events/${event.id}`)}>Apply now</Button>
+          <Button className="bg-blue-700 hover:bg-blue-500"
+          onClick={() => router.push(`/events/${event.id}`)}>Apply now</Button>
         </div>
       </div>
     </div>

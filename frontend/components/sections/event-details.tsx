@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import {Trophy, Calendar, MapPin, Users, Link2 } from "lucide-react"
+import { Trophy, Calendar, MapPin, Users, Link2 } from "lucide-react"
 import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -127,10 +127,10 @@ export function EventDetails({ eventId }: EventDetailsProps) {
                 <p className="text-2xl font-bold">{event.applicationDeadline}</p>
               </div>
               <div className="flex gap-2">
-              <Button className="flex-1 bg-blue-600 text-white hover:bg-blue-700" size="lg">
-    Apply now
-  </Button>
-                <Button variant="outline" size="lg" className="flex-1">
+                <Button className="flex-1 bg-blue-600 text-white hover:bg-blue-700" size="lg">
+                  Apply now
+                </Button>
+                <Button variant="outline" size="lg" className="bg-white-600 hover:bg-blue-700 flex-1">
                   <Link2 className="h-4 w-4 mr-2" />
                   Website
                 </Button>
@@ -158,37 +158,37 @@ export function EventDetails({ eventId }: EventDetailsProps) {
             ))}
           </div>
 
-            <div className="space-y-8"></div>
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Event Tracks</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {event.tracks.map((track) => (
-                  <div key={track.name} className="bg-slate-800 p-6 rounded-lg">
-                    <h3 className="font-semibold mb-2">{track.name}</h3>
-                    <p className="text-slate-400">{track.description}</p>
-                  </div>
-                ))}
-              </div>
+          <div className="space-y-8"></div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Event Tracks</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {event.tracks.map((track) => (
+                <div key={track.name} className="bg-slate-800 p-6 rounded-lg">
+                  <h3 className="font-semibold mb-2">{track.name}</h3>
+                  <p className="text-slate-400">{track.description}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div>
-              <h2 className="text-2xl font-bold mb-4">Sponsors</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {event.sponsors.map((sponsor) => (
-                  <div key={sponsor.name} className="bg-slate-800 p-4 rounded-lg text-center">
-                    <Image
-                      src={sponsor.logo || "/placeholder.svg"}
-                      alt={sponsor.name}
-                      width={120}
-                      height={60}
-                      className="mx-auto mb-2"
-                    />
-                    <h3 className="font-medium">{sponsor.name}</h3>
-                    <p className="text-sm text-slate-400">{sponsor.type}</p>
-                  </div>
-                ))}
-              </div>
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Sponsors</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {event.sponsors.map((sponsor) => (
+                <div key={sponsor.name} className="bg-slate-800 p-4 rounded-lg text-center">
+                  <Image
+                    src={sponsor.logo || "/placeholder.svg"}
+                    alt={sponsor.name}
+                    width={120}
+                    height={60}
+                    className="mx-auto mb-2"
+                  />
+                  <h3 className="font-medium">{sponsor.name}</h3>
+                  <p className="text-sm text-slate-400">{sponsor.type}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
           <div className="space-y-8">
             <div>

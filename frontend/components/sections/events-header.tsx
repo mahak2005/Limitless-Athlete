@@ -103,7 +103,7 @@ export function EventsHeader() {
   }
 
   return (
-    <section className="py-12 bg-gradient-to-b from-blue-600 to-lightblue-400 px-4 border-b">
+    <section className="py-12 bg-gradient-to-b from-blue-500 to-lightblue-400 px-4 border-b">
       <div className="container px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -128,7 +128,7 @@ export function EventsHeader() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <Button 
+            <Button
               className="bg-white text-blue-600 hover:bg-blue-500 hover:text-white"
               onClick={handleSearch}
             >

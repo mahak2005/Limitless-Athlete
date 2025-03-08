@@ -80,9 +80,9 @@ const athleteData = {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function AthleteProfile({ id }: { id: string }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-b from-blue-500 to-lightblue-300 px-4">
       {/* Header */}
-      <div className="bg-blue-600">
+      <div className="">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-4">

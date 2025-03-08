@@ -56,10 +56,10 @@ const coachData = {
         },
     ],
 }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function CoachProfile({ id }: { id: string }) {
     return (
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 bg-gradient-to-b from-blue-500 to-lightblue-300 px-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Column - Profile Info */}
                 <div className="lg:col-span-1">
@@ -155,7 +155,7 @@ export function CoachProfile({ id }: { id: string }) {
                                                     {pkg.type}
                                                 </CardDescription>
                                             </div>
-                                            <Button>Rs. {pkg.price} - Book Now</Button>
+                                            <Button className="bg-blue-700 hover:bg-blue-500">Rs. {pkg.price} - Book Now</Button>
                                         </div>
                                     </CardHeader>
                                     <CardContent>
@@ -185,7 +185,7 @@ export function CoachProfile({ id }: { id: string }) {
                                                 <CardTitle>{service.title}</CardTitle>
                                                 <CardDescription className="mt-1">{service.description}</CardDescription>
                                             </div>
-                                            <Button>Rs.{service.price} - Book Now</Button>
+                                            <Button className="bg-blue-700 hover:bg-blue-500">Rs.{service.price} - Book Now</Button>
                                         </div>
                                     </CardHeader>
                                 </Card>

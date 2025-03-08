@@ -28,7 +28,7 @@ const coaches: Coach[] = [
   },
   {
     id: 2,
-    name: "Sarah Khan",
+    name: "Dr. Sarah Khan",
     title: "Sports Nutritionist",
     organization: "Peak Nutrition",
     description: "Certified nutritionist with expertise in athlete diet planning and performance nutrition",
@@ -44,33 +44,33 @@ const coaches: Coach[] = [
     image: "/c2.jpg",
     badge: "Physiotherapy",
   },
-  {
-    id: 4,
-    name: "Dr. Maya Patel",
-    title: "Mental Performance Coach",
-    organization: "Mind Athletes",
-    description: "Sports psychologist helping athletes achieve peak mental performance",
-    image: "/c3.jpg",
-    badge: "Mental Training",
-  },
-  {
-    id: 5,
-    name: "Vikash Kumar",
-    title: "Strength & Conditioning",
-    organization: "Power Performance",
-    description: "Expert in developing customized strength training programs for athletes",
-    image: "/c1.jpg",
-    badge: "Training",
-  },
-  {
-    id: 6,
-    name: "Mira Sharma",
-    title: "Recovery Specialist",
-    organization: "Athletic Recovery Center",
-    description: "Specialized in athlete recovery techniques and injury prevention",
-    image: "/placeholder.svg?height=400&width=400",
-    badge: "Recovery",
-  },
+  // {
+  //   id: 4,
+  //   name: "Dr. Maya Patel",
+  //   title: "Mental Performance Coach",
+  //   organization: "Mind Athletes",
+  //   description: "Sports psychologist helping athletes achieve peak mental performance",
+  //   image: "/c3.jpg",
+  //   badge: "Mental Training",
+  // },
+  // {
+  //   id: 5,
+  //   name: "Vikash Kumar",
+  //   title: "Strength & Conditioning",
+  //   organization: "Power Performance",
+  //   description: "Expert in developing customized strength training programs for athletes",
+  //   image: "/c1.jpg",
+  //   badge: "Training",
+  // },
+  // {
+  //   id: 6,
+  //   name: "Mira Sharma",
+  //   title: "Recovery Specialist",
+  //   organization: "Athletic Recovery Center",
+  //   description: "Specialized in athlete recovery techniques and injury prevention",
+  //   image: "/placeholder.svg?height=400&width=400",
+  //   badge: "Recovery",
+  // },
 ]
 
 export function CoachGrid() {
@@ -99,7 +99,7 @@ export function CoachGrid() {
             <p className="text-sm text-gray-600 mb-4">{coach.organization}</p>
             <p className="text-sm text-gray-700 mb-4">{coach.description}</p>
             <Link href={`/coaches/${coach.id}`}>
-              <Button className="w-full">View Profile</Button>
+              <Button className="w-full bg-blue-700 hover:bg-blue-500">View Profile</Button>
             </Link>
           </div>
         </motion.div>
