@@ -24,7 +24,7 @@ interface AthleteGridProps {
 export function AthleteGrid({ athletes }: AthleteGridProps) {
   return (
     <section className="py-12 bg-slate-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {athletes.map((athlete) => (
@@ -34,7 +34,7 @@ export function AthleteGrid({ athletes }: AthleteGridProps) {
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="relative bg-blue-500 p-6 pb-24">
+                <div className="relative bg-gradient-to-b from-blue-600 to-lightblue-500 p-6 pb-24">
                   <div className="flex items-center gap-2">
                     <h3 className="text-2xl font-semibold text-white">
                      {athlete.name}
