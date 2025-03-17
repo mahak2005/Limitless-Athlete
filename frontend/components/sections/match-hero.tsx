@@ -7,6 +7,9 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 // import { Input } from "@/components/ui/input"
 import { useState } from "react"
 import { AthleteGrid } from "@/components/sections/athlete-grid"
+// import router from "next/router"
+import { useRouter } from "next/navigation";
+import { Sparkles } from "lucide-react"
 
 // const sportsLeagues = ["MLB/BASEBALL", "NFL/FOOTBALL", "NBA/BASKETBALL", "NHL/HOCKEY", "COLLEGE"]
 
@@ -119,6 +122,7 @@ export default function MatchHero() {
   const [selectedGender, setSelectedGender] = useState<string>("")
   const [location, setLocation] = useState<string>("")
   const [showAthletes, setShowAthletes] = useState(false)
+  const router = useRouter()
 
   // Filter function to pass the values to AthleteGrid
   const filteredAthletes = athletes.filter((athlete) => {
@@ -197,13 +201,23 @@ export default function MatchHero() {
 
           </div>
 
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center"> */}
+          <div className="flex flex-col md:flex-row justify-center gap-4">
             <Button
               size="lg"
               className="bg-blue-700 hover:bg-blue-500"
               onClick={() => setShowAthletes(!showAthletes)}
             >
               {showAthletes ? "HIDE ATHLETES" : "VIEW ALL ATHLETES"}
+            </Button>
+
+            <Button
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 flex items-center gap-2"
+              onClick={() => router.push("/match-with-athletes/ai-matching")}
+            >
+              <Sparkles className="h-5 w-5" />
+              AI MATCHING - FIND YOUR BEST FIT
             </Button>
           </div>
         </motion.div>
