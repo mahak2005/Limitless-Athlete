@@ -60,7 +60,7 @@ export function AIMatchingForm() {
     })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter()
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleChange = (field: string, value: any) => {
         setFormData((prev) => ({ ...prev, [field]: value }))
     }
