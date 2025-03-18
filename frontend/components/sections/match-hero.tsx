@@ -217,7 +217,7 @@ export default function MatchHero() {
               onClick={() => router.push("/match-with-athletes/ai-matching")}
             >
               <Sparkles className="h-5 w-5" />
-              AI MATCHING - FIND YOUR BEST FIT
+              SMART MATCHING - FIND YOUR BEST FIT
             </Button>
           </div>
         </motion.div>
